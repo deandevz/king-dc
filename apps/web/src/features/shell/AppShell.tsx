@@ -145,6 +145,7 @@ function AppShellInner({ children }: { children: ReactNode }): JSX.Element {
       nickname: me.nickname,
       avatarUrl: me.avatarUrl,
       micMuted: !micEnabledForMode(prefs.inputMode),
+      deafened: false,
       screenSharing: false,
     };
     return applyPresenceOverlay(data?.channels ?? [], {

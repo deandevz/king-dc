@@ -80,7 +80,8 @@ de cada pessoa é estável.
 Tamanhos: 22 na sidebar, 34 no dock, 44 no tile, 80 nas configurações, 88 na sala de espera.
 
 Estados: falando é anel e glow. Mudo é opacidade 0,5 e ícone de microfone cortado.
-Ensurdecido reaproveita o visual de mudo com ícone de fone.
+Ensurdecido reaproveita o visual de mudo com ícone de fone cortado, e vale para todo mundo.
+Na barra de controles, microfone e fone ficam verdes ligados e vermelhos desligados.
 
 ## Estados
 

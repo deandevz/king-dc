@@ -3,7 +3,8 @@
 import type { JSX } from 'react';
 import { Track } from 'livekit-client';
 import type { Participant } from 'livekit-client';
-import { useIsMuted, useIsSpeaking } from '@livekit/components-react';
+import { useIsMuted, useIsSpeaking, useParticipantAttribute } from '@livekit/components-react';
+import { DEAFENED_ATTRIBUTE, DEAFENED_ON } from '@kingdc/contracts';
 import { Avatar, Icon, cx } from '@/ui';
 import type { CallTile } from '../lib/tiles';
 import { SpeakingBars } from './SpeakingBars';
@@ -25,10 +26,14 @@ export function ParticipantTile({
 }: ParticipantTileProps): JSX.Element {
   const speaking = useIsSpeaking(participant);
   const muted = useIsMuted({ participant, source: Track.Source.Microphone });
+  const deafened = useParticipantAttribute(DEAFENED_ATTRIBUTE, { participant }) === DEAFENED_ON;
   const label = tile.isLocal ? `${tile.nickname} · você` : tile.nickname;
   const avatarSize = variant === 'grid' ? 88 : 44;
 
-  const status = muted ? (
+  // Ensurdecido implica mudo (decisão D9): o fone cortado já diz os dois.
+  const status = deafened ? (
+    <Icon name="headphonesOff" size={variant === 'grid' ? 13 : 14} className={styles.muteIcon} />
+  ) : muted ? (
     <Icon name="micOff" size={variant === 'grid' ? 13 : 14} className={styles.muteIcon} />
   ) : tile.isSharing ? (
     <Icon name="screen" size={variant === 'grid' ? 13 : 14} className={styles.shareIcon} />
@@ -68,6 +73,7 @@ export function ParticipantTile({
   const flags = {
     'data-identity': tile.identity,
     'data-muted': String(muted),
+    'data-deafened': String(deafened),
     'data-speaking': String(speaking),
     'data-sharing': String(tile.isSharing),
   };

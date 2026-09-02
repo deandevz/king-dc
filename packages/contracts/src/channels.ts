@@ -10,12 +10,20 @@ export const channelSchema = z.object({
 });
 export type Channel = z.infer<typeof channelSchema>;
 
+/**
+ * Ensurdecer viaja como atributo do participante no LiveKit (decisão D9): a API e a sala
+ * leem a mesma chave. Ausente ou vazio é "ouvindo".
+ */
+export const DEAFENED_ATTRIBUTE = 'deafened';
+export const DEAFENED_ON = '1';
+
 /** Um participante dentro de um canal, visto pelo LiveKit. */
 export const presenceParticipantSchema = z.object({
   userId: z.string(),
   nickname: z.string(),
   avatarUrl: z.string().nullable(),
   micMuted: z.boolean(),
+  deafened: z.boolean(),
   screenSharing: z.boolean(),
 });
 export type PresenceParticipant = z.infer<typeof presenceParticipantSchema>;

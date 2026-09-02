@@ -81,7 +81,7 @@ test('GET /channels devolve os canais na ordem de position', async () => {
   expect(response.headers['x-presence-stale']).toBeUndefined();
 });
 
-test('presença traduz tracks em micMuted e screenSharing', async () => {
+test('presença traduz tracks e atributo em micMuted, deafened e screenSharing', async () => {
   await seedChannels();
   const sid = await sessionFor(testApp.app, await createUser(testApp.app));
   listImpl = async (room) =>
@@ -92,7 +92,7 @@ test('presença traduz tracks em micMuted e screenSharing', async () => {
             metadata: JSON.stringify({ nickname: 'lele', avatarUrl: '/avatars/u1.webp?v=1' }),
             mic: 'live',
           }),
-          participantInfo({ identity: 'u2', name: 'tonhão', mic: 'muted', screen: true }),
+          participantInfo({ identity: 'u2', name: 'tonhão', mic: 'muted', deafened: true, screen: true }),
           participantInfo({ identity: 'u3', name: 'duda', mic: 'none' }),
         ]
       : [];
@@ -111,10 +111,25 @@ test('presença traduz tracks em micMuted e screenSharing', async () => {
       nickname: 'lele',
       avatarUrl: '/avatars/u1.webp?v=1',
       micMuted: false,
+      deafened: false,
       screenSharing: false,
     },
-    { userId: 'u2', nickname: 'tonhão', avatarUrl: null, micMuted: true, screenSharing: true },
-    { userId: 'u3', nickname: 'duda', avatarUrl: null, micMuted: true, screenSharing: false },
+    {
+      userId: 'u2',
+      nickname: 'tonhão',
+      avatarUrl: null,
+      micMuted: true,
+      deafened: true,
+      screenSharing: true,
+    },
+    {
+      userId: 'u3',
+      nickname: 'duda',
+      avatarUrl: null,
+      micMuted: true,
+      deafened: false,
+      screenSharing: false,
+    },
   ]);
   expect(body.onlineCount).toBe(3);
 });

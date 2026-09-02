@@ -112,6 +112,8 @@ class LiveKitSdkService implements LiveKitService {
       canPublish: true,
       canSubscribe: true,
       canPublishData: true,
+      // O front publica o ensurdecer como atributo do participante (decisão D9).
+      canUpdateOwnMetadata: true,
       // O SDK converte para as strings 'microphone'/'screen_share'/'screen_share_audio'
       // ao montar o JWT (decisão D6). Sem câmera no MVP.
       canPublishSources: [

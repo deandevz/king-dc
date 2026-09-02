@@ -24,13 +24,14 @@ describe('remoteVolume', () => {
 });
 
 describe('micEnabledAfterDeafChange', () => {
-  it('ensurdecer implica mutar o microfone', () => {
-    expect(micEnabledAfterDeafChange(true, true)).toBe(false);
+  it('ensurdecer muta o microfone em qualquer modo', () => {
+    expect(micEnabledAfterDeafChange(true, 'vad')).toBe(false);
+    expect(micEnabledAfterDeafChange(true, 'ptt')).toBe(false);
   });
 
-  it('desensurdecer não desmuta', () => {
-    expect(micEnabledAfterDeafChange(false, false)).toBe(false);
-    expect(micEnabledAfterDeafChange(false, true)).toBe(true);
+  it('desensurdecer religa o microfone, menos em push-to-talk', () => {
+    expect(micEnabledAfterDeafChange(false, 'vad')).toBe(true);
+    expect(micEnabledAfterDeafChange(false, 'ptt')).toBe(false);
   });
 });
 

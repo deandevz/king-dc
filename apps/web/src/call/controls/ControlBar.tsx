@@ -40,7 +40,7 @@ export function ControlBar({
     <div className={styles.bar}>
       <IconButton
         label={micLabel}
-        tone={micEnabled ? 'active' : 'neutral'}
+        tone={micEnabled ? 'active' : 'danger'}
         onClick={onToggleMic}
         aria-pressed={micEnabled}
         data-testid="control-mic"
@@ -49,7 +49,7 @@ export function ControlBar({
       </IconButton>
       <IconButton
         label={deafened ? 'Voltar a ouvir' : 'Ensurdecer'}
-        tone={deafened ? 'danger' : 'neutral'}
+        tone={deafened ? 'danger' : 'active'}
         onClick={onToggleDeaf}
         aria-pressed={deafened}
         data-testid="control-deaf"

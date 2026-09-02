@@ -44,7 +44,7 @@ O King DC é a resposta simples. Poucas funções, cada uma inteira, rodando num
 - Compartilhamento de tela com áudio, fixo em 720p a 30 fps.
 - Mudo, ensurdecer, push-to-talk ou detecção de voz.
 - Sons de mudo, ensurdecer, entrar, sair e de tela começando ou parando, trocáveis por arquivo.
-- Indicador de quem está falando, quem está mutado e quem está compartilhando.
+- Indicador de quem está falando, quem está mutado ou ensurdecido e quem está compartilhando.
 - Quem está em qual canal, na sidebar, atualizado a cada 2 s.
 - Perfil com nick e foto. A foto vira WebP de 256 px no servidor.
 - Convite por código de 6 caracteres, válido por 7 dias. O código é o login.

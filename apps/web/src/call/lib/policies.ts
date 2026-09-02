@@ -12,10 +12,14 @@ export function remoteVolume(deafened: boolean, outputVolume: number): number {
 }
 
 /**
- * Ensurdecer implica mutar o microfone; desensurdecer não desmuta (decisão D9).
+ * Ensurdecer muta o microfone; desensurdecer religa, exceto em push-to-talk, onde o mic só
+ * abre segurando a tecla (decisão D9).
  */
-export function micEnabledAfterDeafChange(nextDeafened: boolean, micEnabled: boolean): boolean {
-  return nextDeafened ? false : micEnabled;
+export function micEnabledAfterDeafChange(
+  nextDeafened: boolean,
+  mode: AudioPrefs['inputMode'],
+): boolean {
+  return nextDeafened ? false : micEnabledForMode(mode);
 }
 
 /** Estado do microfone ao entrar na sala e ao trocar de modo (decisão D12). */

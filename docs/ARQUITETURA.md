@@ -58,10 +58,10 @@ começa por atualizar esta tabela.
 | D3 | Membros | Não existe tabela de membros. Um servidor só; todo mundo vê todos os canais. | Menos uma tabela, menos uma tela. |
 | D4 | Admin | Coluna `isAdmin`. Só admin cria convite e canal. O seed cria o primeiro admin. | Convite precisa de dono. Vinte pessoas não justificam cargos. |
 | D5 | Presença | Fonte de verdade é o `listParticipants` do LiveKit, agregado pela API com cache de 2 s. O webhook apaga a entrada do canal que mudou. O front faz polling a cada 2 s; no canal conectado, a lista vem da sala. | O webhook do LiveKit não tem garantia de entrega. SSE ou WebSocket é custo sem retorno para 20 pessoas. |
-| D6 | Token | TTL de 6 h, renovado pelo front a cada 5 h. `canPublishSources` = microfone, tela e áudio da tela. `metadata` = JSON com nick e foto. `identity` = id do usuário. | Expiração não derruba conexão ativa, só reconexão. Sem câmera. |
+| D6 | Token | TTL de 6 h, renovado pelo front a cada 5 h. `canPublishSources` = microfone, tela e áudio da tela. `canUpdateOwnMetadata` para o atributo de ensurdecer (D9). `metadata` = JSON com nick e foto. `identity` = id do usuário. | Expiração não derruba conexão ativa, só reconexão. Sem câmera. |
 | D7 | Sala | `room = channel.slug`. Nasce no primeiro join, sem `createRoom`. | O canal já existe no Postgres. Criar a sala antes é trabalho extra. |
 | D8 | Tela | 1280×720 a 30 fps, 2 Mbps, `contentHint: 'detail'`, com áudio. Simulcast ligado. Sem seletor de qualidade. | É o preset oficial do SDK. 60 fps custaria 1,5 vez mais banda para uma melhora que não importa em tela compartilhada. |
-| D9 | Ensurdecer | No cliente: volume zero em todo remoto e microfone mutado. Ensurdecer implica mutar; desensurdecer não desmuta. | O LiveKit não tem esse conceito. Semântica igual à do Discord. |
+| D9 | Ensurdecer | No cliente: volume zero em todo remoto e microfone mutado. Ensurdecer muta o microfone; desensurdecer religa, exceto em push-to-talk. O estado vai para os outros como atributo `deafened = '1'` do participante, lido pela sala e pelo `listParticipants` da API: sidebar, sala de espera e tile mostram o fone cortado. | O LiveKit não tem esse conceito. Semântica igual à do Discord. Todo mundo precisa ver, senão alguém fala com quem não está ouvindo. |
 | D10 | Preferências de áudio | Só no `localStorage`, chave `kingdc.audio`: dispositivo de entrada e saída, volume de saída, modo do microfone e tecla do push-to-talk. | IDs de dispositivo são por browser. Não vale um endpoint. |
 | D11 | Volume do microfone | Não existe slider de ganho de entrada. Só volume de saída. | Ganho de entrada exigiria Web Audio no caminho da track. O `autoGainControl` do browser já cobre. |
 | D12 | Push-to-talk | Tecla padrão `Backquote`. Segurar liga o microfone, soltar desliga. Só com a aba em foco. | Não existe atalho global de teclado numa página web. A UI avisa. |
@@ -190,13 +190,13 @@ type Me = {
 type Channel = { id: string; slug: string; name: string; position: number };
 type PresenceParticipant = {
   userId: string; nickname: string; avatarUrl: string | null;
-  micMuted: boolean; screenSharing: boolean;
+  micMuted: boolean; deafened: boolean; screenSharing: boolean;
 };
 type ChannelWithPresence = Channel & { participants: PresenceParticipant[] };
 ```
 
 - `onlineCount` é o número de usuários distintos somando todos os canais.
-- `micMuted` é track de microfone ausente ou mutada. `screenSharing` é track de tela presente.
+- `micMuted` é track de microfone ausente ou mutada. `deafened` é o atributo `deafened` igual a `'1'` (D9). `screenSharing` é track de tela presente.
 - Sala inexistente no LiveKit é lista vazia, não erro.
 - O cache de presença é *stale-while-revalidate*. Com entrada vencida, a API responde na hora
   com o valor antigo e atualiza por trás, uma atualização por canal, sem empilhar. Só bloqueia

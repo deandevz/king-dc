@@ -8,6 +8,7 @@ function source(identity: string, overrides: Partial<PresenceSource> = {}): Pres
     name: undefined,
     metadata: undefined,
     micMuted: false,
+    deafened: false,
     screenSharing: false,
     ...overrides,
   };
@@ -19,6 +20,7 @@ describe('toPresenceList', () => {
       source('u1', {
         metadata: JSON.stringify({ nickname: 'lele', avatarUrl: '/avatars/u1.webp?v=1' }),
         micMuted: true,
+        deafened: true,
         screenSharing: true,
       }),
     ]);
@@ -29,6 +31,7 @@ describe('toPresenceList', () => {
         nickname: 'lele',
         avatarUrl: '/avatars/u1.webp?v=1',
         micMuted: true,
+        deafened: true,
         screenSharing: true,
       },
     ]);
