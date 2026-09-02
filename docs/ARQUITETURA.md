@@ -77,6 +77,7 @@ começa por atualizar esta tabela.
 | D22 | Monorepo | pnpm workspaces, sem Turborepo. ESM em tudo. Node 24 nas imagens Docker, 22 ou mais novo na máquina. | |
 | D23 | Versões | Next 16, React 19, Fastify 5, Prisma 7 (não a 8 release candidate), `livekit-server-sdk` 2.18, `livekit-client` 2.22, `@livekit/components-react` 2.9, Zod 4, vitest 4. | Combinação verificada pelas `peerDependencies` de cada pacote. |
 | D24 | Compose | Um `docker-compose.yml`. `livekit` e `caddy` no profile `prod`. O `docker-compose.override.yml` só publica portas para desenvolvimento. | Profile é topologia (sobe ou não). Override é valor (porta, env). |
+| D25 | Sons | Oito MP3 de nome fixo em `apps/web/public/sounds/`: `mutar`, `desmutar`, `mute-fone`, `desmute-fone` (só quem clicou ouve) e `entrou`, `saiu`, `tela-inicio`, `tela-fim` (todo mundo na mesma sala, pelos eventos da sala). Push-to-talk não toca. Saem no dispositivo e volume de saída das preferências, mesmo ensurdecido. Trocar o som é trocar o arquivo. | Feedback igual ao do Discord. Quem entra numa sala cheia, com tela aberta, ouve só o próprio "entrou": o SDK só emite `ParticipantConnected` e `TrackPublished` depois de conectado. Quem sai compartilhando gera só "saiu". |
 
 Fora do escopo, de propósito: chat de texto, mensagens diretas, histórico, OAuth, câmera,
 gravação, celular, editar ou apagar canal, volume por participante, cargos além de admin,

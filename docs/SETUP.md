@@ -168,6 +168,9 @@ pnpm typecheck && pnpm lint && pnpm --filter api test && pnpm --filter web test 
   → Privacidade e Segurança → Microfone, ligar o browser, fechar com Cmd+Q e abrir de novo.
   Sintoma típico: o "Testar microfone" das configurações não mexe, e funciona em outro
   browser.
+- **Sons da call.** Mudo, ensurdecer, entrar, sair e início ou fim de tela tocam os MP3 de
+  `apps/web/public/sounds/` (nomes fixos, decisão D25). Para trocar um som, substitua o
+  arquivo mantendo o nome. Os que vêm no repo são bipes gerados com ffmpeg.
 - **Compartilhar tela não funciona no celular.** Safari e Chrome no celular não expõem
   `getDisplayMedia`. Ver a tela dos outros e falar funciona.
 

@@ -17,12 +17,14 @@ import { AudioGate } from './AudioGate';
 import { ControlBar } from './controls/ControlBar';
 import { useAudioDevices } from './hooks/useAudioDevices';
 import { useCallConnection } from './hooks/useCallConnection';
+import { useCallSounds } from './hooks/useCallSounds';
 import { useDeafen } from './hooks/useDeafen';
 import { usePresenceReport } from './hooks/usePresenceReport';
 import { usePushToTalk } from './hooks/usePushToTalk';
 import { useScreenShare } from './hooks/useScreenShare';
 import { useShareFocus } from './hooks/useShareFocus';
 import { micEnabledAfterDeafChange, micEnabledForMode } from './lib/policies';
+import { deafSound, micSound } from './lib/sounds';
 import { pttKeyLabel } from './lib/pttLabel';
 import { buildTiles, resolveFocusedShare } from './lib/tiles';
 import { ParticipantTile } from './tiles/ParticipantTile';
@@ -64,6 +66,7 @@ export function CallStage({
   const { deafened, volume, setDeafened } = useDeafen(room, audioPrefs.outputVolume);
   const screenShare = useScreenShare(room);
   useAudioDevices(room, audioPrefs);
+  const playSound = useCallSounds(room, audioPrefs);
 
   const setMic = useCallback(
     (enabled: boolean): void => {
@@ -134,18 +137,25 @@ export function CallStage({
 
   const toggleDeaf = useCallback((): void => {
     const next = !deafened;
+    playSound(deafSound(next));
     setDeafened(next);
     if (!micEnabledAfterDeafChange(next, isMicrophoneEnabled)) setMic(false);
-  }, [deafened, isMicrophoneEnabled, setDeafened, setMic]);
+  }, [deafened, isMicrophoneEnabled, playSound, setDeafened, setMic]);
+
+  const toggleMic = useCallback((): void => {
+    playSound(micSound(!isMicrophoneEnabled));
+    setMic(!isMicrophoneEnabled);
+  }, [isMicrophoneEnabled, playSound, setMic]);
 
   const handleLeave = useCallback((): void => {
     onLeaveIntent();
+    playSound('saiu');
     void (async () => {
       await localParticipant.setScreenShareEnabled(false).catch(() => undefined);
       await room.disconnect().catch(() => undefined);
       onLeave();
     })();
-  }, [localParticipant, onLeave, onLeaveIntent, room]);
+  }, [localParticipant, onLeave, onLeaveIntent, playSound, room]);
 
   return (
     <div className={styles.stage}>
@@ -208,7 +218,7 @@ export function CallStage({
         deafened={deafened}
         sharing={isScreenShareEnabled}
         pttHint={inputMode === 'ptt' ? pttKeyLabel(pttKey) : null}
-        onToggleMic={() => setMic(!isMicrophoneEnabled)}
+        onToggleMic={toggleMic}
         onToggleDeaf={toggleDeaf}
         onToggleShare={() => (isScreenShareEnabled ? screenShare.stop() : screenShare.start())}
         onOpenSettings={onOpenSettings}
