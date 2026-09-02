@@ -215,7 +215,7 @@ Short and with no dates promised.
 
 ## Contributing
 
-Issues and pull requests are welcome. Before opening a PR, run the gate:
+Issues and pull requests are welcome. The rules are in [`CONTRIBUTING.md`](CONTRIBUTING.md) (Portuguese): a bug or feature starts with an issue, one PR solves one thing, short description written by you. Before opening a PR, run the gate:
 
 ```sh
 pnpm typecheck && pnpm lint && pnpm --filter api test && pnpm --filter web test \

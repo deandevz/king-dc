@@ -215,7 +215,7 @@ Curto e sem promessa de data.
 
 ## Contribuindo
 
-Issues e pull requests são bem-vindos. Antes de abrir um PR, rode o gate:
+Issues e pull requests são bem-vindos. As regras estão em [`CONTRIBUTING.md`](CONTRIBUTING.md): bug ou feature começa com issue, um PR resolve uma coisa, descrição curta escrita por você. Antes de abrir um PR, rode o gate:
 
 ```sh
 pnpm typecheck && pnpm lint && pnpm --filter api test && pnpm --filter web test \
