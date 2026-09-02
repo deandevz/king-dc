@@ -1,0 +1,135 @@
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  height: var(--kd-control-h);
+  padding: 0 26px;
+  border: 1px solid transparent;
+  border-radius: var(--kd-radius-md);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: var(--kd-fw-bold);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease, opacity 120ms ease;
+}
+
+.base:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.base:focus-visible {
+  outline: none;
+  box-shadow: var(--kd-ring-focus), 0 0 0 1px var(--kd-accent-focus);
+}
+
+.primary {
+  background: var(--kd-accent);
+  color: var(--kd-on-accent);
+  box-shadow: var(--kd-shadow-accent);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--kd-accent-hover);
+}
+
+.secondary {
+  border-color: var(--kd-border-strong);
+  background: var(--kd-glass-strong);
+  color: var(--kd-text);
+  font-weight: var(--kd-fw-semibold);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--kd-glass-hover);
+}
+
+.danger {
+  border-radius: var(--kd-radius-pill);
+  padding: 0 22px;
+  background: var(--kd-danger-weak);
+  color: var(--kd-danger);
+}
+
+.danger:hover:not(:disabled) {
+  background: rgba(255, 122, 122, 0.2);
+}
+
+.pill {
+  border-radius: var(--kd-radius-pill);
+  box-shadow: var(--kd-shadow-pill-accent);
+}
+
+.compact {
+  height: var(--kd-control-h-compact);
+  padding: 0 16px;
+  border-radius: 10px;
+  font-size: var(--kd-fs-label);
+}
+
+.block {
+  width: 100%;
+}
+
+/* Botão de ícone circular da barra de controles (46px) e quadrado do dock (32px). */
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: var(--kd-icon-bg);
+  color: var(--kd-text);
+  cursor: pointer;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+
+.icon:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.icon:focus-visible {
+  outline: none;
+  box-shadow: var(--kd-ring-focus);
+}
+
+.iconRound {
+  width: var(--kd-control-h-round);
+  height: var(--kd-control-h-round);
+  border-radius: 50%;
+}
+
+.iconSquare {
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  background: transparent;
+  color: var(--kd-text-2);
+}
+
+.iconSquare:hover:not(:disabled) {
+  background: var(--kd-glass-strong);
+  color: var(--kd-text);
+}
+
+.iconRound:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.11);
+}
+
+.iconActive {
+  background: var(--kd-accent);
+  color: var(--kd-on-accent);
+}
+
+.iconActive:hover:not(:disabled) {
+  background: var(--kd-accent-hover);
+}
+
+.iconDanger {
+  background: var(--kd-danger-weak);
+  color: var(--kd-danger);
+}

@@ -1,0 +1,15 @@
+.body {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
+  overflow: auto;
+}
+
+.missing {
+  margin: auto;
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-2);
+}

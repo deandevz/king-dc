@@ -1,0 +1,57 @@
+/* Ocupa a coluna inteira: a pílula de controles fica a 34 px do rodapé de verdade e o
+   overlay de autoplay cobre a área toda, com ou sem tela compartilhada (Call.dc.html:230). */
+.stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  align-items: center;
+  gap: var(--kd-space-4);
+  width: 100%;
+  min-height: 520px;
+  padding: var(--kd-space-6) 0 124px;
+}
+
+/* Estado de conexão: barra discreta no topo da área (decisão D20). */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--kd-space-2);
+  height: 30px;
+  padding: 0 14px;
+  border: 1px solid var(--kd-border-field);
+  border-radius: var(--kd-radius-pill);
+  background: var(--kd-glass);
+  backdrop-filter: blur(var(--kd-blur-glass));
+  font-size: var(--kd-fs-label);
+  font-weight: var(--kd-fw-semibold);
+  color: var(--kd-text-2);
+}
+
+/* Ninguém compartilhando: grade centralizada nos dois eixos, como a sala de espera do Main
+   (Main.dc.html:141). `align-content` centra as linhas do wrap. */
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 1;
+  align-items: flex-start;
+  align-content: center;
+  justify-content: center;
+  gap: 44px;
+  width: 100%;
+  padding: var(--kd-space-8) var(--kd-space-6);
+}
+
+.focusArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kd-space-4);
+  width: min(996px, 100%);
+}
+
+.strip {
+  display: flex;
+  gap: var(--kd-space-3);
+  width: 100%;
+}

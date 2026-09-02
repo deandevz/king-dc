@@ -1,0 +1,35 @@
+/* Toast único no canto inferior direito (decisão D20). */
+.toast {
+  position: fixed;
+  right: var(--kd-space-6);
+  bottom: var(--kd-space-6);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  gap: var(--kd-space-3);
+  max-width: 420px;
+  padding: 14px 18px;
+  border: 1px solid var(--kd-border-field);
+  border-radius: var(--kd-radius-md);
+  background: var(--kd-overlay);
+  backdrop-filter: blur(var(--kd-blur-chip));
+  -webkit-backdrop-filter: blur(var(--kd-blur-chip));
+  box-shadow: var(--kd-shadow-bar);
+  color: var(--kd-text);
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-medium);
+}
+
+
+.error {
+  border-color: var(--kd-danger-border);
+  color: var(--kd-danger);
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.message {
+  flex-grow: 1;
+}

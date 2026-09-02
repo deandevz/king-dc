@@ -1,0 +1,256 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #313338; font-family: 'Public Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #8ba4f2; text-decoration: none; }
+    a:hover { color: #adbef7; text-decoration: underline; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; height: 900px; display: flex; background: #313338; box-sizing: border-box; overflow: hidden;">
+
+  <!-- Rail de servidores -->
+  <div style="width: 72px; flex-shrink: 0; background: #1e1f22; display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 12px 0;">
+    <div style="position: relative; width: 72px; display: flex; justify-content: center;">
+      <div style="position: absolute; left: 0; top: 4px; width: 4px; height: 40px; border-radius: 0 4px 4px 0; background: #f2f3f5;"></div>
+      <div style="width: 48px; height: 48px; border-radius: 8px; background: #4b6ee5; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 15px; font-weight: 700;">KD</div>
+    </div>
+    <div style="width: 32px; height: 2px; border-radius: 1px; background: #35373c; margin: 4px 0;"></div>
+    <div style="width: 48px; height: 48px; border-radius: 8px; background: #2b2d31; border: 1px dashed #3f4147; display: flex; align-items: center; justify-content: center; color: #2fb26b; box-sizing: border-box;">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+    </div>
+  </div>
+
+  <!-- Sidebar de canais -->
+  <div style="width: 240px; flex-shrink: 0; background: #2b2d31; display: flex; flex-direction: column;">
+
+    <div style="height: 48px; flex-shrink: 0; border-bottom: 1px solid #232428; padding: 0 16px; display: flex; align-items: center; justify-content: space-between; box-sizing: border-box;">
+      <span style="color: #f2f3f5; font-size: 15px; font-weight: 700;">King DC</span>
+      <span style="color: #b5bac1; display: flex;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+      </span>
+    </div>
+
+    <div style="flex-grow: 1; padding: 8px; display: flex; flex-direction: column; gap: 2px; box-sizing: border-box; overflow: hidden;">
+
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 14px 8px 4px;">
+        <span style="color: #949ba4; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;">Canais de voz</span>
+        <span style="color: #949ba4; display: flex;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+        </span>
+      </div>
+
+      <!-- Sala Principal (selecionada) -->
+      <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; background: #3f4248; box-sizing: border-box;">
+        <span style="color: #dbdee1; display: flex; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+        </span>
+        <span style="color: #f2f3f5; font-size: 15px; font-weight: 500; flex-grow: 1;">Sala Principal</span>
+        <span style="color: #949ba4; font-size: 12px; font-weight: 600;">4</span>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 4px;">
+        <div style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px 0 30px; border-radius: 8px; box-sizing: border-box;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: #c9713f; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 11px; font-weight: 600; box-shadow: 0 0 0 2px #2fb26b; flex-shrink: 0;">R</div>
+          <span style="color: #f2f3f5; font-size: 14px; font-weight: 500; flex-grow: 1;">rafa</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px 0 30px; border-radius: 8px; box-sizing: border-box;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: #9b5de5; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 11px; font-weight: 600; flex-shrink: 0;">B</div>
+          <span style="color: #949ba4; font-size: 14px; font-weight: 500; flex-grow: 1;">bia</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px 0 30px; border-radius: 8px; box-sizing: border-box;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: #3aa6b9; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 11px; font-weight: 600; opacity: 0.6; flex-shrink: 0;">L</div>
+          <span style="color: #949ba4; font-size: 14px; font-weight: 500; flex-grow: 1;">leo</span>
+          <span style="color: #d8434a; display: flex; flex-shrink: 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="2" y="14" width="5" height="7" rx="2"></rect><rect x="17" y="14" width="5" height="7" rx="2"></rect><path d="M3 3 21 21"></path></svg>
+          </span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px 0 30px; border-radius: 8px; box-sizing: border-box;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: #2fb26b; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 11px; font-weight: 600; opacity: 0.6; flex-shrink: 0;">N</div>
+          <span style="color: #949ba4; font-size: 14px; font-weight: 500; flex-grow: 1;">nina</span>
+          <span style="color: #d8434a; display: flex; flex-shrink: 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path><path d="M3 3 21 21"></path></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Trabalho -->
+      <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; box-sizing: border-box;">
+        <span style="color: #949ba4; display: flex; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+        </span>
+        <span style="color: #949ba4; font-size: 15px; font-weight: 500; flex-grow: 1;">Trabalho</span>
+        <span style="color: #949ba4; font-size: 12px; font-weight: 600;">2</span>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 2px; padding-bottom: 4px;">
+        <div style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px 0 30px; border-radius: 8px; box-sizing: border-box;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: #d8434a; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 11px; font-weight: 600; flex-shrink: 0;">C</div>
+          <span style="color: #949ba4; font-size: 14px; font-weight: 500; flex-grow: 1;">caio</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px; height: 30px; padding: 0 8px 0 30px; border-radius: 8px; box-sizing: border-box;">
+          <div style="width: 24px; height: 24px; border-radius: 50%; background: #7a8290; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 11px; font-weight: 600; flex-shrink: 0;">V</div>
+          <span style="color: #949ba4; font-size: 14px; font-weight: 500; flex-grow: 1;">vitor</span>
+          <span style="color: #b5bac1; display: flex; flex-shrink: 0;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path></svg>
+          </span>
+        </div>
+      </div>
+
+      <!-- Vazios -->
+      <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; box-sizing: border-box;">
+        <span style="color: #7a8087; display: flex; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+        </span>
+        <span style="color: #7a8087; font-size: 15px; font-weight: 500; flex-grow: 1;">Joguinho</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; box-sizing: border-box;">
+        <span style="color: #7a8087; display: flex; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+        </span>
+        <span style="color: #7a8087; font-size: 15px; font-weight: 500; flex-grow: 1;">AFK</span>
+      </div>
+
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 16px 8px 4px;">
+        <span style="color: #949ba4; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;">Salas privadas</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; box-sizing: border-box;">
+        <span style="color: #7a8087; display: flex; flex-shrink: 0;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+        </span>
+        <span style="color: #7a8087; font-size: 15px; font-weight: 500; flex-grow: 1;">Diretoria</span>
+        <span style="color: #7a8087; display: flex; flex-shrink: 0;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+        </span>
+      </div>
+
+    </div>
+
+    <!-- Painel do usuário -->
+    <div style="height: 54px; flex-shrink: 0; background: #232428; padding: 0 8px; display: flex; align-items: center; gap: 8px; box-sizing: border-box;">
+      <div style="position: relative; width: 32px; height: 32px; flex-shrink: 0;">
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: #4b6ee5; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 13px; font-weight: 600;">D</div>
+        <div style="position: absolute; right: -2px; bottom: -2px; width: 12px; height: 12px; border-radius: 50%; background: #2fb26b; border: 3px solid #232428; box-sizing: content-box;"></div>
+      </div>
+      <div style="display: flex; flex-direction: column; flex-grow: 1; min-width: 0; gap: 1px;">
+        <span style="color: #f2f3f5; font-size: 14px; font-weight: 600;">dean</span>
+        <span style="color: #949ba4; font-size: 12px;">Online</span>
+      </div>
+      <div style="display: flex; gap: 2px; flex-shrink: 0;">
+        <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b5bac1;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+        </div>
+        <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b5bac1;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="2" y="14" width="5" height="7" rx="2"></rect><rect x="17" y="14" width="5" height="7" rx="2"></rect></svg>
+        </div>
+        <div style="width: 32px; height: 32px; border-radius: 8px; background: #35373c; display: flex; align-items: center; justify-content: center; color: #dbdee1;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="m4.9 4.9 2.2 2.2"></path><path d="m16.9 16.9 2.2 2.2"></path><path d="m19.1 4.9-2.2 2.2"></path><path d="m7.1 16.9-2.2 2.2"></path></svg>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Conteúdo -->
+  <div style="flex-grow: 1; display: flex; flex-direction: column; background: #313338; min-width: 0;">
+
+    <div style="height: 48px; flex-shrink: 0; border-bottom: 1px solid #2b2d31; padding: 0 16px; display: flex; align-items: center; gap: 10px; box-sizing: border-box;">
+      <span style="color: #949ba4; display: flex;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+      </span>
+      <span style="color: #f2f3f5; font-size: 15px; font-weight: 700;">Sala Principal</span>
+      <span style="width: 1px; height: 20px; background: #3f4147;"></span>
+      <span style="color: #949ba4; font-size: 13px;">4 de 12 conectados · sem limite de tempo</span>
+      <span style="flex-grow: 1;"></span>
+      <div style="display: flex; gap: 4px;">
+        <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b5bac1;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.9"></path><path d="M16 3.1a4 4 0 0 1 0 7.8"></path></svg>
+        </div>
+        <div style="width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #b5bac1;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="m4.9 4.9 2.2 2.2"></path><path d="m16.9 16.9 2.2 2.2"></path><path d="m19.1 4.9-2.2 2.2"></path><path d="m7.1 16.9-2.2 2.2"></path></svg>
+        </div>
+      </div>
+    </div>
+
+    <div style="flex-grow: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 32px; padding: 32px 48px; box-sizing: border-box;">
+
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <div style="color: #f2f3f5; font-size: 26px; font-weight: 700;">Sala Principal</div>
+        <div style="color: #b5bac1; font-size: 15px;">4 pessoas conversando agora. Entra que dá tempo.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; width: 848px;">
+
+        <div style="background: #232428; border-radius: 8px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px; box-shadow: 0 0 0 2px #2fb26b;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: #c9713f; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 28px; font-weight: 600;">R</div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span style="color: #f2f3f5; font-size: 15px; font-weight: 600;">rafa</span>
+            <span style="display: flex; align-items: center; gap: 5px; color: #2fb26b; font-size: 13px; font-weight: 500;">
+              <span style="width: 6px; height: 6px; border-radius: 50%; background: #2fb26b; display: inline-block;"></span>
+              falando
+            </span>
+          </div>
+        </div>
+
+        <div style="background: #232428; border-radius: 8px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div style="width: 72px; height: 72px; border-radius: 50%; background: #9b5de5; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 28px; font-weight: 600;">B</div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span style="color: #f2f3f5; font-size: 15px; font-weight: 600;">bia</span>
+            <span style="color: #949ba4; font-size: 13px;">ouvindo</span>
+          </div>
+        </div>
+
+        <div style="background: #232428; border-radius: 8px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div style="position: relative; width: 72px; height: 72px;">
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: #3aa6b9; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 28px; font-weight: 600; opacity: 0.55;">L</div>
+            <div style="position: absolute; right: -2px; bottom: -2px; width: 26px; height: 26px; border-radius: 50%; background: #d8434a; border: 3px solid #232428; display: flex; align-items: center; justify-content: center; color: #ffffff; box-sizing: content-box;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="2" y="14" width="5" height="7" rx="2"></rect><rect x="17" y="14" width="5" height="7" rx="2"></rect><path d="M3 3 21 21"></path></svg>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span style="color: #b5bac1; font-size: 15px; font-weight: 600;">leo</span>
+            <span style="color: #d8434a; font-size: 13px;">som desligado</span>
+          </div>
+        </div>
+
+        <div style="background: #232428; border-radius: 8px; padding: 24px 16px; display: flex; flex-direction: column; align-items: center; gap: 12px;">
+          <div style="position: relative; width: 72px; height: 72px;">
+            <div style="width: 72px; height: 72px; border-radius: 50%; background: #2fb26b; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 28px; font-weight: 600; opacity: 0.55;">N</div>
+            <div style="position: absolute; right: -2px; bottom: -2px; width: 26px; height: 26px; border-radius: 50%; background: #d8434a; border: 3px solid #232428; display: flex; align-items: center; justify-content: center; color: #ffffff; box-sizing: content-box;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path><path d="M3 3 21 21"></path></svg>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+            <span style="color: #b5bac1; font-size: 15px; font-weight: 600;">nina</span>
+            <span style="color: #949ba4; font-size: 13px;">microfone mudo</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="height: 44px; padding: 0 24px; border-radius: 8px; background: #2fb26b; color: #ffffff; font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 9px;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+          <span>Entrar no canal de voz</span>
+        </div>
+        <div style="height: 44px; padding: 0 20px; border-radius: 8px; background: #4e5058; color: #f2f3f5; font-size: 15px; font-weight: 600; display: flex; align-items: center; gap: 9px;">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M12 13V8"></path><path d="m9.5 10.5 2.5-2.5 2.5 2.5"></path></svg>
+          <span>Entrar já compartilhando</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

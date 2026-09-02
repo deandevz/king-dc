@@ -1,0 +1,48 @@
+.empty,
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kd-space-6);
+}
+
+.text {
+  margin: 0;
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-medium);
+  line-height: 1.5;
+  color: var(--kd-text-2);
+}
+
+.boxes {
+  display: flex;
+  justify-content: center;
+  gap: var(--kd-space-2);
+}
+
+/* Mesmas caixas do login (Login.dc.html:41-48), em modo leitura. */
+.box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 60px;
+  border: 1px solid var(--kd-border-field);
+  border-radius: var(--kd-radius-md);
+  background: var(--kd-glass-strong);
+  font-size: 20px;
+  font-weight: var(--kd-fw-bold);
+}
+
+.expiry {
+  margin: 0;
+  font-size: 12px;
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-3);
+  text-align: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--kd-space-3);
+}

@@ -1,0 +1,19 @@
+# Aplicado automaticamente em desenvolvimento (`docker compose up`).
+# Em produção use `docker compose -f docker-compose.yml --profile prod up -d`
+# para NÃO carregar este arquivo e manter as portas fechadas.
+services:
+  postgres:
+    ports:
+      # Só no loopback, nunca aberto para a rede. Se a 5432 já estiver ocupada por
+      # outro projeto na sua máquina, defina POSTGRES_HOST_PORT no .env.
+      - "127.0.0.1:${POSTGRES_HOST_PORT:-5432}:5432"
+
+  api:
+    environment:
+      NODE_ENV: development
+    ports:
+      - "127.0.0.1:${API_HOST_PORT:-3000}:3000"
+
+  web:
+    ports:
+      - "127.0.0.1:${WEB_HOST_PORT:-3001}:3001"

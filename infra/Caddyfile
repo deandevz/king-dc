@@ -1,0 +1,17 @@
+# TLS automático via Let's Encrypt. Exige que os domínios apontem para o IP da VPS
+# e que as portas 80/443 estejam livres.
+
+{$PUBLIC_DOMAIN} {
+	encode zstd gzip
+
+	# Todo o tráfego do browser vai para o Next, que reescreve /api e /avatars
+	# para a API interna (decisão D16). Sem CORS, cookie de origem única.
+	reverse_proxy web:3001
+}
+
+{$LIVEKIT_DOMAIN} {
+	# Sinalização do LiveKit (WebSocket). O livekit-server roda em network_mode: host,
+	# então daqui ele é alcançado pelo gateway do Docker, não por nome de serviço.
+	# A mídia RTC (UDP 50000-60000, TCP 7881, TURN 3478) NUNCA passa por aqui.
+	reverse_proxy host.docker.internal:7880
+}

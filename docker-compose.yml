@@ -1,0 +1,133 @@
+name: kingdc
+
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"
+
+services:
+  postgres:
+    image: postgres:18-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: kingdc
+      POSTGRES_DB: kingdc
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?defina POSTGRES_PASSWORD no .env}
+    volumes:
+      - pgdata:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U kingdc -d kingdc"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 10s
+    networks: [kingdc_net]
+    logging: *default-logging
+
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOST: 0.0.0.0
+      PORT: "3000"
+      DATABASE_URL: postgresql://kingdc:${POSTGRES_PASSWORD}@postgres:5432/kingdc
+      SESSION_SECRET: ${SESSION_SECRET:?defina SESSION_SECRET no .env}
+      LIVEKIT_URL: ${LIVEKIT_URL:?defina LIVEKIT_URL no .env}
+      LIVEKIT_HOST_HTTP: ${LIVEKIT_HOST_HTTP:?defina LIVEKIT_HOST_HTTP no .env}
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY:?defina LIVEKIT_API_KEY no .env}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET:?defina LIVEKIT_API_SECRET no .env}
+      AVATAR_DIR: /data/avatars
+      SEED_ADMIN_CODE: ${SEED_ADMIN_CODE:-}
+      SEED_ADMIN_PASSWORD: ${SEED_ADMIN_PASSWORD:-}
+    volumes:
+      - avatars:/data/avatars
+    extra_hosts:
+      # Em produção o livekit roda em network_mode: host, fora da rede do compose. A API
+      # só o alcança pelo gateway: LIVEKIT_HOST_HTTP=http://host.docker.internal:7880.
+      - "host.docker.internal:host-gateway"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "node", "docker-healthcheck.js"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 30s
+    networks: [kingdc_net]
+    logging: *default-logging
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      args:
+        # Dentro da rede do compose a API sempre atende em api:3000.
+        API_INTERNAL_URL: http://api:3000
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      HOSTNAME: 0.0.0.0
+      PORT: "3001"
+      API_INTERNAL_URL: http://api:3000
+    depends_on:
+      api:
+        condition: service_healthy
+    networks: [kingdc_net]
+    logging: *default-logging
+
+  livekit:
+    image: livekit/livekit-server:v1.13.6
+    profiles: ["prod"]
+    restart: unless-stopped
+    command: ["--config", "/etc/livekit.yaml"]
+    environment:
+      # A imagem lê as chaves por env; o arquivo montado cuida do resto da config.
+      LIVEKIT_KEYS: "${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}"
+    volumes:
+      # LIVEKIT_CONFIG_FILE no .env aponta para uma cópia local (ex.: infra/livekit.vps.yaml,
+      # ignorada pelo git) quando a VPS precisa de webhook ou TURN/TLS.
+      - ${LIVEKIT_CONFIG_FILE:-./infra/livekit.yaml}:/etc/livekit.yaml:ro
+    # WebRTC precisa do range UDP endereçável direto: NAT do Docker não escala.
+    network_mode: host
+    logging: *default-logging
+
+  caddy:
+    image: caddy:2.11.4-alpine
+    profiles: ["prod"]
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      PUBLIC_DOMAIN: ${PUBLIC_DOMAIN:?defina PUBLIC_DOMAIN no .env}
+      LIVEKIT_DOMAIN: ${LIVEKIT_DOMAIN:?defina LIVEKIT_DOMAIN no .env}
+    extra_hosts:
+      # O livekit roda em network_mode: host; o Caddy o alcança pelo gateway.
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api:
+        condition: service_healthy
+      web:
+        condition: service_started
+    networks: [kingdc_net]
+    logging: *default-logging
+
+networks:
+  kingdc_net:
+    driver: bridge
+
+volumes:
+  pgdata:
+  avatars:
+  caddy_data:
+  caddy_config:

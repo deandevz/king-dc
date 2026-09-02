@@ -1,0 +1,73 @@
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.brandMark {
+  color: var(--kd-accent);
+}
+
+.brandName {
+  font-size: 21px;
+  font-weight: var(--kd-fw-bold);
+  letter-spacing: var(--kd-ls-title);
+}
+
+.card {
+  width: 420px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kd-space-2);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--kd-fs-title);
+  font-weight: var(--kd-fw-bold);
+  letter-spacing: var(--kd-ls-title);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-medium);
+  line-height: 1.5;
+  color: var(--kd-text-2);
+}
+
+.fieldIcon {
+  flex-shrink: 0;
+  color: var(--kd-text-3);
+}
+
+.error {
+  margin: -12px 0 0;
+  font-size: var(--kd-fs-label);
+  font-weight: var(--kd-fw-semibold);
+  color: var(--kd-danger);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kd-space-4);
+}
+
+.hint {
+  margin: 0;
+  font-size: 12px;
+  font-weight: var(--kd-fw-medium);
+  line-height: 1.5;
+  color: var(--kd-text-3);
+  text-align: center;
+}

@@ -1,0 +1,156 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--kd-space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Linha de canal: 36px, raio 10px. */
+.channel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--kd-text-2);
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.channel:hover {
+  background: var(--kd-glass-soft);
+}
+
+.channel:focus-visible {
+  outline: none;
+  box-shadow: var(--kd-ring-focus);
+}
+
+.viewing {
+  background: var(--kd-glass-strong);
+  color: var(--kd-text);
+}
+
+.viewing:hover {
+  background: var(--kd-glass-strong);
+}
+
+/* Você está conectado neste canal (Call.dc.html:45). */
+.inCall {
+  border-color: rgba(126, 231, 196, 0.2);
+  background: var(--kd-accent-faint);
+  color: var(--kd-text);
+}
+
+.inCall:hover {
+  background: var(--kd-accent-faint);
+}
+
+.channelIcon {
+  flex-shrink: 0;
+  color: currentColor;
+}
+
+.viewing .channelIcon,
+.inCall .channelIcon {
+  color: var(--kd-accent);
+}
+
+.channelName {
+  flex-grow: 1;
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-semibold);
+}
+
+.count {
+  font-size: var(--kd-fs-micro);
+  font-weight: var(--kd-fw-semibold);
+  color: var(--kd-text-3);
+}
+
+.inCall .count {
+  color: var(--kd-accent);
+}
+
+/* Linha de participante: 30px, indentada sob o canal. */
+.people {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 0;
+  padding: 4px 0 8px;
+  list-style: none;
+}
+
+.person {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 30px;
+  padding: 0 10px 0 34px;
+}
+
+.personName {
+  flex-grow: 1;
+  overflow: hidden;
+  font-size: var(--kd-fs-label);
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.personMuted {
+  color: #8b8d98;
+}
+
+.youTag {
+  font-size: 10px;
+  font-weight: var(--kd-fw-bold);
+  color: var(--kd-text-3);
+}
+
+.mutedIcon {
+  flex-shrink: 0;
+  color: var(--kd-danger);
+}
+
+.sharingIcon {
+  flex-shrink: 0;
+  color: var(--kd-accent);
+}
+
+.skeleton {
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.04)
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+.empty {
+  margin: 0;
+  padding: 0 10px;
+  font-size: var(--kd-fs-label);
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-3);
+}

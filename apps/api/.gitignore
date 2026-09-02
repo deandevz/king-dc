@@ -1,0 +1,4 @@
+# Gerado pelo `prisma generate` no postinstall.
+src/generated/
+# Avatares dos testes.
+test/tmp-avatars/

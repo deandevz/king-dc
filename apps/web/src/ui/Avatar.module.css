@@ -1,0 +1,27 @@
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: var(--kd-fw-bold);
+  line-height: 1;
+  overflow: hidden;
+  user-select: none;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Redundante com o overflow do pai, mas garante o recorte mesmo se algum
+     estado mudar o overflow. O anel de "falando" é box-shadow do próprio avatar
+     e não é cortado por overflow: hidden. */
+  border-radius: 50%;
+}
+
+.muted {
+  opacity: 0.5;
+}

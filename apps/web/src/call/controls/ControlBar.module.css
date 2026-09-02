@@ -1,0 +1,85 @@
+.bar {
+  position: absolute;
+  left: 50%;
+  bottom: 34px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: 64px;
+  padding: 0 10px;
+  transform: translateX(-50%);
+  border: 1px solid var(--kd-border-field);
+  border-radius: var(--kd-radius-pill);
+  background: var(--kd-overlay);
+  backdrop-filter: blur(var(--kd-blur-bar));
+  box-shadow: var(--kd-shadow-bar);
+}
+
+.divider {
+  width: 1px;
+  height: 28px;
+  margin: 0 var(--kd-space-1);
+  background: var(--kd-border-field);
+}
+
+.leave {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: var(--kd-control-h-round);
+  padding: 0 20px;
+  border: 0;
+  border-radius: var(--kd-radius-pill);
+  background: var(--kd-danger-weak);
+  color: var(--kd-danger);
+  font-family: inherit;
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-bold);
+  cursor: pointer;
+}
+
+.leave:hover {
+  background: rgba(255, 122, 122, 0.2);
+}
+
+.leave:focus-visible {
+  outline: none;
+  box-shadow: var(--kd-ring-focus);
+}
+
+/* Dica do push-to-talk: fica sob a pílula, sem empurrar os botões. */
+.hint {
+  position: absolute;
+  top: calc(100% + var(--kd-space-2));
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: var(--kd-fs-micro);
+  font-weight: var(--kd-fw-semibold);
+  letter-spacing: var(--kd-ls-micro);
+  text-transform: uppercase;
+  color: var(--kd-text-3);
+}
+
+.hintLive {
+  color: var(--kd-accent);
+}
+
+/* A tecla em caixa própria e sem uppercase: "`" e "Ctrl esq." precisam se ler como tecla. */
+.key {
+  display: inline-block;
+  min-width: 18px;
+  margin-left: 4px;
+  padding: 1px 6px;
+  border: 1px solid var(--kd-border-field);
+  border-radius: 5px;
+  background: var(--kd-glass);
+  font-family: inherit;
+  font-size: var(--kd-fs-label);
+  font-weight: var(--kd-fw-bold);
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: none;
+  color: var(--kd-text);
+}

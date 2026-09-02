@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.035);
+}
+
+.cardLabel {
+  font-size: var(--kd-fs-micro);
+  font-weight: var(--kd-fw-semibold);
+  letter-spacing: var(--kd-ls-micro);
+  color: var(--kd-text-3);
+  text-transform: uppercase;
+}
+
+.cardActions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.codeBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.codeLabel {
+  font-size: var(--kd-fs-micro);
+  font-weight: var(--kd-fw-semibold);
+  letter-spacing: 0.08em;
+  color: var(--kd-text-3);
+  text-transform: uppercase;
+}
+
+.codeRow {
+  display: flex;
+  align-items: center;
+  gap: var(--kd-space-3);
+  height: 46px;
+  padding: 0 12px 0 16px;
+  border: 1px solid var(--kd-border-subtle);
+  border-radius: var(--kd-radius-md);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.code {
+  flex-grow: 1;
+  font-size: 15px;
+  font-weight: var(--kd-fw-semibold);
+  letter-spacing: 0.12em;
+  color: var(--kd-text-2);
+}
+
+/* ── Card de áudio ────────────────────────────────────────────────────── */
+
+.warning {
+  margin: 0;
+  font-size: 12px;
+  font-weight: var(--kd-fw-medium);
+  line-height: 1.5;
+  color: var(--kd-text-3);
+}
+
+.pttRow {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.testRow {
+  display: flex;
+  align-items: center;
+  gap: var(--kd-space-4);
+}
+
+.meter {
+  display: flex;
+  align-items: center;
+  gap: var(--kd-space-1);
+  flex-grow: 1;
+}
+
+.bar {
+  width: 4px;
+  height: 16px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.barOn {
+  background: var(--kd-accent);
+}

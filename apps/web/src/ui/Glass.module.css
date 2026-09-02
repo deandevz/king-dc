@@ -1,0 +1,14 @@
+.glass {
+  border: 1px solid var(--kd-border);
+  border-radius: var(--kd-radius-lg);
+  background: var(--kd-glass);
+  backdrop-filter: blur(var(--kd-blur-glass));
+  -webkit-backdrop-filter: blur(var(--kd-blur-glass));
+}
+
+.card {
+  border-radius: 20px;
+  padding: 40px 40px 32px;
+  box-shadow: var(--kd-shadow-card);
+}
+

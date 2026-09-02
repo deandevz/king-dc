@@ -1,0 +1,29 @@
+/* Duas colunas fixas: sidebar de 260px + conteúdo, mínimo de 1280px (D19). */
+.shell {
+  display: flex;
+  width: 100%;
+  min-width: 1280px;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-width: 0;
+  height: 100vh;
+}
+
+.booting {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.bootingText {
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-2);
+}

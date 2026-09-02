@@ -1,0 +1,43 @@
+node_modules/
+.next/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+
+# ambiente: nunca commitar segredos
+.env
+.env.*
+!.env.example
+
+# dados locais (volumes, avatares)
+/data
+data/
+
+# testes
+test-results/
+playwright-report/
+blob-report/
+.playwright/
+
+*.log
+.DS_Store
+
+# canvas gerado a partir dos mockups (~2.6 MB cada)
+design/minimal/king-dc-minimal.html
+design/classico/king-dc-classico.html
+
+# estado local de editores e ferramentas
+.claude/
+.vscode/
+.idea/
+
+# notas de trabalho, fora do repositório
+context/
+
+# backups locais do infra/backup.sh
+backups/
+
+# config do livekit específica da máquina (webhook, TURN/TLS)
+infra/livekit.*.yaml
+!infra/livekit.yaml

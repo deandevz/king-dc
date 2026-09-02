@@ -1,0 +1,60 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  font-size: var(--kd-fs-micro);
+  font-weight: var(--kd-fw-semibold);
+  letter-spacing: 0.08em;
+  color: var(--kd-text-3);
+  text-transform: uppercase;
+}
+
+.boxes {
+  display: flex;
+  gap: 8px;
+}
+
+.box {
+  /* O card de 420px deixa 340px úteis; 6 caixas de 52px + gaps não cabem. */
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 52px;
+  height: 60px;
+  padding: 0;
+  border: 1px solid var(--kd-border);
+  border-radius: var(--kd-radius-md);
+  background: var(--kd-glass-soft);
+  color: var(--kd-text);
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: var(--kd-fw-bold);
+  text-align: center;
+  text-transform: uppercase;
+  caret-color: var(--kd-accent);
+  transition: border-color 120ms ease, background-color 120ms ease, box-shadow 120ms ease;
+}
+
+.filled {
+  border-color: var(--kd-border-field);
+  background: var(--kd-glass-strong);
+}
+
+.box:focus {
+  outline: none;
+  border-color: var(--kd-accent-focus);
+  background: rgba(126, 231, 196, 0.08);
+  box-shadow: 0 0 0 3px rgba(126, 231, 196, 0.1);
+}
+
+.invalid .box {
+  border-color: var(--kd-danger-border);
+}
+
+.error {
+  font-size: 12px;
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-danger);
+}

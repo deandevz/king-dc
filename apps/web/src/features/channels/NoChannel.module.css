@@ -1,0 +1,30 @@
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--kd-space-3);
+  flex-grow: 1;
+  padding: 0 60px;
+  text-align: center;
+}
+
+.icon {
+  color: var(--kd-text-4);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--kd-fs-title);
+  font-weight: var(--kd-fw-bold);
+  letter-spacing: var(--kd-ls-title);
+}
+
+.subtitle {
+  margin: 0;
+  max-width: 420px;
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-medium);
+  line-height: 1.5;
+  color: var(--kd-text-2);
+}

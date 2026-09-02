@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; background: #313338; font-family: 'Public Sans', -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #8ba4f2; text-decoration: none; }
+    a:hover { color: #adbef7; text-decoration: underline; }
+    .cap { color: #949ba4; font-size: 11px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; }
+    .hex { color: #6d7178; font-size: 11px; font-family: ui-monospace, 'SF Mono', Menlo, monospace; }
+    .swname { color: #dbdee1; font-size: 12px; font-weight: 600; }
+    .panel-title { color: #f2f3f5; font-size: 18px; font-weight: 700; }
+  </style>
+</helmet>
+
+<div style="width: 1440px; min-height: 1880px; background: #313338; padding: 48px; box-sizing: border-box; display: flex; flex-direction: column; gap: 32px;">
+
+  <!-- Cabeçalho -->
+  <div style="display: flex; align-items: flex-end; gap: 20px;">
+    <div style="width: 56px; height: 56px; border-radius: 8px; background: #4b6ee5; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 20px; font-weight: 700; flex-shrink: 0;">KD</div>
+    <div style="display: flex; flex-direction: column; gap: 4px; flex-grow: 1;">
+      <div style="color: #f2f3f5; font-size: 28px; font-weight: 700; letter-spacing: -0.01em;">King DC — Sistema de design</div>
+      <div style="color: #b5bac1; font-size: 15px;">Direção A: Discord clássico refinado. Dark mode, três colunas, densidade média, sem enfeite.</div>
+    </div>
+    <div style="display: flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 8px; background: #2b2d31; color: #949ba4; font-size: 12px; font-weight: 600;">Desktop 1440 × 900</div>
+  </div>
+
+  <!-- Cores -->
+  <div style="background: #2b2d31; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 20px;">
+    <div class="panel-title">Cores</div>
+
+    <div style="display: flex; flex-direction: column; gap: 10px;">
+      <div class="cap">Superfícies</div>
+      <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px;">
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="height: 64px; border-radius: 8px; background: #1e1f22; border: 1px solid #3f4147;"></div>
+          <span class="swname">Fundo profundo</span><span class="hex">#1e1f22</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="height: 64px; border-radius: 8px; background: #232428; border: 1px solid #3f4147;"></div>
+          <span class="swname">Painel do usuário</span><span class="hex">#232428</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="height: 64px; border-radius: 8px; background: #2b2d31; border: 1px solid #3f4147;"></div>
+          <span class="swname">Sidebar</span><span class="hex">#2b2d31</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="height: 64px; border-radius: 8px; background: #313338; border: 1px solid #3f4147;"></div>
+          <span class="swname">Conteúdo</span><span class="hex">#313338</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="height: 64px; border-radius: 8px; background: #3f4248; border: 1px solid #3f4147;"></div>
+          <span class="swname">Item ativo</span><span class="hex">#3f4248</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="height: 64px; border-radius: 8px; background: #4e5058; border: 1px solid #3f4147;"></div>
+          <span class="swname">Botão neutro</span><span class="hex">#4e5058</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="cap">Texto</div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #f2f3f5;"></div>
+            <span class="swname">Primário</span><span class="hex">#f2f3f5</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #dbdee1;"></div>
+            <span class="swname">Interativo</span><span class="hex">#dbdee1</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #b5bac1;"></div>
+            <span class="swname">Secundário</span><span class="hex">#b5bac1</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #949ba4;"></div>
+            <span class="swname">Apagado</span><span class="hex">#949ba4</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div class="cap">Acento e estados</div>
+        <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #4b6ee5;"></div>
+            <span class="swname">Acento</span><span class="hex">#4b6ee5</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #2fb26b;"></div>
+            <span class="swname">Voz / falando</span><span class="hex">#2fb26b</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #d8434a;"></div>
+            <span class="swname">Mudo / sair</span><span class="hex">#d8434a</span>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 52px; border-radius: 8px; background: #e5a03b;"></div>
+            <span class="swname">Ausente</span><span class="hex">#e5a03b</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tipografia -->
+  <div style="background: #2b2d31; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+    <div style="display: flex; align-items: baseline; gap: 12px;">
+      <span class="panel-title">Tipografia</span>
+      <span style="color: #949ba4; font-size: 13px;">Public Sans · fallback: system-ui, Segoe UI, Helvetica</span>
+    </div>
+
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: baseline; gap: 24px;">
+        <span style="width: 200px; flex-shrink: 0;" class="cap">Display · 28 / 700</span>
+        <span style="color: #f2f3f5; font-size: 28px; font-weight: 700; letter-spacing: -0.01em;">Sala Principal</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 24px;">
+        <span style="width: 200px; flex-shrink: 0;" class="cap">Título · 20 / 700</span>
+        <span style="color: #f2f3f5; font-size: 20px; font-weight: 700;">Voz e vídeo</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 24px;">
+        <span style="width: 200px; flex-shrink: 0;" class="cap">Item / cabeçalho · 15 / 700</span>
+        <span style="color: #f2f3f5; font-size: 15px; font-weight: 700;">King DC</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 24px;">
+        <span style="width: 200px; flex-shrink: 0;" class="cap">Corpo · 15 / 400</span>
+        <span style="color: #b5bac1; font-size: 15px;">4 pessoas conversando agora. Entra que dá tempo.</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 24px;">
+        <span style="width: 200px; flex-shrink: 0;" class="cap">Participante · 14 / 500</span>
+        <span style="color: #949ba4; font-size: 14px; font-weight: 500;">rafa</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 24px;">
+        <span style="width: 200px; flex-shrink: 0;" class="cap">Rótulo · 12 / 700 caixa alta</span>
+        <span style="color: #949ba4; font-size: 12px; font-weight: 700; letter-spacing: 0.02em; text-transform: uppercase;">Canais de voz</span>
+      </div>
+      <div style="display: flex; align-items: baseline; gap: 24px;">
+        <span style="width: 200px; flex-shrink: 0;" class="cap">Auxiliar · 12 / 400</span>
+        <span style="color: #6d7178; font-size: 12px;">34 ms · 1,8 Mbps recebendo</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Espaçamento, raio, ícones -->
+  <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px;">
+
+    <div style="background: #2b2d31; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+      <div class="panel-title">Espaçamento e raio</div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="cap">Escala de 4</div>
+        <div style="display: flex; align-items: flex-end; gap: 12px;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 4px; height: 32px; background: #4b6ee5; border-radius: 2px;"></div><span class="hex">4</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 8px; height: 32px; background: #4b6ee5; border-radius: 2px;"></div><span class="hex">8</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 12px; height: 32px; background: #4b6ee5; border-radius: 2px;"></div><span class="hex">12</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 16px; height: 32px; background: #4b6ee5; border-radius: 2px;"></div><span class="hex">16</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 24px; height: 32px; background: #4b6ee5; border-radius: 2px;"></div><span class="hex">24</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 32px; height: 32px; background: #4b6ee5; border-radius: 2px;"></div><span class="hex">32</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 48px; height: 32px; background: #4b6ee5; border-radius: 2px;"></div><span class="hex">48</span></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="cap">Raio</div>
+        <div style="display: flex; align-items: center; gap: 16px;">
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 56px; height: 44px; background: #3f4248; border-radius: 3px;"></div><span class="hex">3 · chips</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 56px; height: 44px; background: #3f4248; border-radius: 8px;"></div><span class="hex">8 · padrão</span></div>
+          <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;"><div style="width: 44px; height: 44px; background: #3f4248; border-radius: 50%;"></div><span class="hex">50% · avatar</span></div>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div class="cap">Alturas fixas</div>
+        <div style="color: #b5bac1; font-size: 13px; line-height: 20px;">Rail 72 · sidebar 240 · cabeçalho 48 · linha de canal 34 · linha de participante 30 · painel do usuário 54 · barra de controles 76.</div>
+      </div>
+    </div>
+
+    <div style="background: #2b2d31; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; align-items: baseline; gap: 12px;">
+        <span class="panel-title">Ícones</span>
+        <span style="color: #949ba4; font-size: 13px;">Lineares, grade 24, traço 1.8, pontas redondas</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px;">
+
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg>
+          <span class="hex">canal</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+          <span class="hex">microfone</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #d8434a;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path><path d="M3 3 21 21"></path></svg>
+          <span class="hex">mudo</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="2" y="14" width="5" height="7" rx="2"></rect><rect x="17" y="14" width="5" height="7" rx="2"></rect></svg>
+          <span class="hex">fone</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #d8434a;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15v-3a8 8 0 0 1 16 0v3"></path><rect x="2" y="14" width="5" height="7" rx="2"></rect><rect x="17" y="14" width="5" height="7" rx="2"></rect><path d="M3 3 21 21"></path></svg>
+          <span class="hex">surdo</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="13" rx="2"></rect><path d="M8 21h8"></path><path d="M12 17v4"></path><path d="M12 13V8"></path><path d="m9.5 10.5 2.5-2.5 2.5 2.5"></path></svg>
+          <span class="hex">tela</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #d8434a;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.7 8.5c-.3-.9-.6-1.8-.7-2.7A2 2 0 0 0 8 4H5a2 2 0 0 0-2 2.2 19.8 19.8 0 0 0 3.1 8.6"></path><path d="M9 15a16 16 0 0 0 5 4l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7A2 2 0 0 1 22 20v-1"></path><path d="M2 2 22 22"></path></svg>
+          <span class="hex">sair</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"></circle><path d="M12 2v3"></path><path d="M12 19v3"></path><path d="M2 12h3"></path><path d="M19 12h3"></path><path d="m4.9 4.9 2.2 2.2"></path><path d="m16.9 16.9 2.2 2.2"></path><path d="m19.1 4.9-2.2 2.2"></path><path d="m7.1 16.9-2.2 2.2"></path></svg>
+          <span class="hex">config</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.9"></path><path d="M16 3.1a4 4 0 0 1 0 7.8"></path></svg>
+          <span class="hex">membros</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+          <span class="hex">adicionar</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10" width="16" height="11" rx="2"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+          <span class="hex">privado</span>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; color: #b5bac1;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg>
+          <span class="hex">foto</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Componentes -->
+  <div style="background: #2b2d31; border-radius: 8px; padding: 24px; display: flex; flex-direction: column; gap: 22px;">
+    <div class="panel-title">Componentes</div>
+
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px;">
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="cap">Botões · altura 40</div>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <div style="height: 40px; padding: 0 18px; border-radius: 8px; background: #4b6ee5; color: #ffffff; font-size: 14px; font-weight: 600; display: flex; align-items: center;">Primário</div>
+            <div style="height: 40px; padding: 0 18px; border-radius: 8px; background: #2fb26b; color: #ffffff; font-size: 14px; font-weight: 600; display: flex; align-items: center;">Entrar na voz</div>
+            <div style="height: 40px; padding: 0 18px; border-radius: 8px; background: #d8434a; color: #ffffff; font-size: 14px; font-weight: 600; display: flex; align-items: center;">Sair</div>
+            <div style="height: 40px; padding: 0 18px; border-radius: 8px; background: #4e5058; color: #f2f3f5; font-size: 14px; font-weight: 600; display: flex; align-items: center;">Neutro</div>
+            <div style="height: 40px; padding: 0 18px; border-radius: 8px; border: 1px solid #4e5058; color: #dbdee1; font-size: 14px; font-weight: 500; display: flex; align-items: center; box-sizing: border-box;">Contorno</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="cap">Campo de texto · repouso e foco</div>
+          <div style="display: flex; gap: 12px;">
+            <div style="flex-grow: 1; display: flex; align-items: center; height: 42px; background: #1e1f22; border: 1px solid #1e1f22; border-radius: 8px; padding: 0 12px; box-sizing: border-box;">
+              <span style="color: #6d7178; font-size: 15px;">Digite o código</span>
+            </div>
+            <div style="flex-grow: 1; display: flex; align-items: center; height: 42px; background: #1e1f22; border: 1px solid #4b6ee5; border-radius: 8px; padding: 0 12px; box-sizing: border-box;">
+              <span style="color: #f2f3f5; font-size: 15px; font-weight: 500;">dean</span>
+              <span style="width: 2px; height: 18px; background: #4b6ee5; margin-left: 2px;"></span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="cap">Linha de canal · repouso, hover, ativo</div>
+          <div style="background: #2b2d31; border: 1px solid #3f4147; border-radius: 8px; padding: 8px; display: flex; flex-direction: column; gap: 2px;">
+            <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; box-sizing: border-box;">
+              <span style="color: #949ba4; display: flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg></span>
+              <span style="color: #949ba4; font-size: 15px; font-weight: 500;">Joguinho</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; background: #35373c; box-sizing: border-box;">
+              <span style="color: #dbdee1; display: flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg></span>
+              <span style="color: #dbdee1; font-size: 15px; font-weight: 500;">Trabalho</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px; height: 34px; padding: 0 8px; border-radius: 8px; background: #3f4248; box-sizing: border-box;">
+              <span style="color: #dbdee1; display: flex;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5 6 9H2v6h4l5 4z"></path><path d="M15.5 8.5a5 5 0 0 1 0 7"></path><path d="M18.5 5.5a9 9 0 0 1 0 13"></path></svg></span>
+              <span style="color: #f2f3f5; font-size: 15px; font-weight: 500; flex-grow: 1;">Sala Principal</span>
+              <span style="color: #949ba4; font-size: 12px; font-weight: 600;">4</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 20px;">
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="cap">Avatar · falando, normal, mudo, offline</div>
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: #c9713f; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 16px; font-weight: 600; box-shadow: 0 0 0 2px #2fb26b;">R</div>
+              <span class="hex">anel verde</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <div style="width: 40px; height: 40px; border-radius: 50%; background: #9b5de5; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 16px; font-weight: 600;">B</div>
+              <span class="hex">normal</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <div style="position: relative; width: 40px; height: 40px;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: #2fb26b; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 16px; font-weight: 600; opacity: 0.55;">N</div>
+                <div style="position: absolute; right: -3px; bottom: -3px; width: 18px; height: 18px; border-radius: 50%; background: #d8434a; border: 2px solid #2b2d31; display: flex; align-items: center; justify-content: center; color: #ffffff; box-sizing: content-box;">
+                  <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M3 3 21 21"></path></svg>
+                </div>
+              </div>
+              <span class="hex">mudo</span>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <div style="position: relative; width: 40px; height: 40px;">
+                <div style="width: 40px; height: 40px; border-radius: 50%; background: #7a8290; display: flex; align-items: center; justify-content: center; color: #ffffff; font-size: 16px; font-weight: 600; opacity: 0.45;">V</div>
+                <div style="position: absolute; right: -2px; bottom: -2px; width: 12px; height: 12px; border-radius: 50%; background: #6d7178; border: 3px solid #2b2d31; box-sizing: content-box;"></div>
+              </div>
+              <span class="hex">offline</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="cap">Chaves e controle deslizante</div>
+          <div style="display: flex; align-items: center; gap: 24px;">
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <div style="width: 40px; height: 24px; border-radius: 12px; background: #2fb26b; display: flex; align-items: center; justify-content: flex-end; padding: 0 3px; box-sizing: border-box;">
+                <span style="width: 18px; height: 18px; border-radius: 50%; background: #ffffff; display: inline-block;"></span>
+              </div>
+              <span style="color: #b5bac1; font-size: 13px;">ligado</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 9px;">
+              <div style="width: 40px; height: 24px; border-radius: 12px; background: #4e5058; display: flex; align-items: center; justify-content: flex-start; padding: 0 3px; box-sizing: border-box;">
+                <span style="width: 18px; height: 18px; border-radius: 50%; background: #ffffff; display: inline-block;"></span>
+              </div>
+              <span style="color: #b5bac1; font-size: 13px;">desligado</span>
+            </div>
+            <div style="position: relative; height: 18px; flex-grow: 1; display: flex; align-items: center;">
+              <div style="width: 100%; height: 8px; border-radius: 4px; background: #1e1f22;"></div>
+              <div style="position: absolute; left: 0; width: 62%; height: 8px; border-radius: 4px; background: #4b6ee5;"></div>
+              <div style="position: absolute; left: 62%; margin-left: -9px; width: 18px; height: 18px; border-radius: 50%; background: #ffffff; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="cap">Selos e botão de controle</div>
+          <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+            <span style="display: flex; align-items: center; height: 20px; padding: 0 8px; border-radius: 8px; background: #2fb26b; color: #ffffff; font-size: 10px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase;">Tela</span>
+            <span style="display: flex; align-items: center; gap: 6px; height: 26px; padding: 0 10px; border-radius: 8px; background: #1e1f22; color: #f2f3f5; font-size: 11px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;">
+              <span style="width: 7px; height: 7px; border-radius: 50%; background: #2fb26b; display: inline-block;"></span>Ao vivo
+            </span>
+            <span style="display: flex; align-items: center; height: 20px; padding: 0 8px; border-radius: 8px; background: #3f4248; color: #b5bac1; font-size: 11px; font-weight: 600;">você</span>
+            <div style="width: 46px; height: 46px; border-radius: 8px; background: #3f4248; display: flex; align-items: center; justify-content: center; color: #f2f3f5;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path></svg>
+            </div>
+            <div style="width: 46px; height: 46px; border-radius: 8px; background: #d8434a; display: flex; align-items: center; justify-content: center; color: #ffffff;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="11" rx="3"></rect><path d="M5 11a7 7 0 0 0 14 0"></path><path d="M12 18v3"></path><path d="M3 3 21 21"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div class="cap">Regras de movimento</div>
+          <div style="color: #b5bac1; font-size: 13px; line-height: 20px;">Hover muda só o fundo, em 100 ms. O anel verde de quem fala aparece e some em 120 ms. Nada mais anima.</div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>

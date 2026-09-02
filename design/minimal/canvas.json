@@ -1,0 +1,14 @@
+{
+  "artboards": [
+    { "file": "Login.dc.html", "x": 0, "y": 0, "w": 1440, "h": 900, "title": "1 · Entrar com convite" },
+    { "file": "Onboarding.dc.html", "x": 1560, "y": 0, "w": 1440, "h": 900, "title": "2 · Perfil (nick + foto)" },
+    { "file": "Main.dc.html", "x": 3120, "y": 0, "w": 1440, "h": 900, "title": "3 · Tela principal" },
+    { "file": "Call.dc.html", "x": 0, "y": 1120, "w": 1440, "h": 900, "title": "4 · Call com tela compartilhada" },
+    { "file": "Settings.dc.html", "x": 1560, "y": 1120, "w": 1440, "h": 900, "title": "5 · Configurações" },
+    { "file": "SistemaVisual.dc.html", "x": 3120, "y": 1120, "w": 1440, "h": 1860, "title": "Sistema visual" }
+  ],
+  "annotations": [
+    { "id": "direcao", "x": 0, "y": -190, "w": 560, "text": "King DC — direção Minimal Glass\n\nDuas colunas (um servidor só, sem barra de servidores), sidebar de 260px, fundo #0B0B0F, painéis em vidro (branco 4% + blur 24), um único accent menta #7EE7C4.\n\nMockups estáticos, sem controles funcionais." }
+  ],
+  "launch": { "view": "canvas" }
+}

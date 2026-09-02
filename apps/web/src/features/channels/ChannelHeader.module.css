@@ -1,0 +1,62 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--kd-space-3);
+  flex-shrink: 0;
+  height: 64px;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.icon {
+  color: var(--kd-text-3);
+}
+
+.title {
+  margin: 0;
+  font-size: var(--kd-fs-subtitle);
+  font-weight: var(--kd-fw-bold);
+  letter-spacing: -0.01em;
+}
+
+.spacer {
+  flex-grow: 1;
+}
+
+.people,
+.invite {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--kd-space-2);
+  height: 34px;
+  padding: 0 14px;
+  border: 1px solid var(--kd-border-field);
+  border-radius: var(--kd-radius-pill);
+  background: var(--kd-glass);
+  color: var(--kd-text);
+  font-family: inherit;
+  font-size: var(--kd-fs-label);
+  font-weight: var(--kd-fw-semibold);
+}
+
+.people {
+  color: var(--kd-text-2);
+}
+
+.invite {
+  cursor: pointer;
+  transition: background-color 120ms ease;
+}
+
+.invite:hover {
+  background: var(--kd-glass-hover);
+}
+
+.invite:focus-visible {
+  outline: none;
+  box-shadow: var(--kd-ring-focus);
+}
+
+.inviteIcon {
+  color: var(--kd-text-2);
+}

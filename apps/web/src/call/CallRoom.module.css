@@ -1,0 +1,30 @@
+.room {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 100%;
+  min-height: 0;
+}
+
+.failure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kd-space-3);
+  margin: var(--kd-space-12) auto;
+  padding: var(--kd-space-8);
+  text-align: center;
+}
+
+.failureTitle {
+  font-size: var(--kd-fs-subtitle);
+  font-weight: var(--kd-fw-bold);
+  color: var(--kd-text);
+}
+
+.failureHint {
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-2);
+}

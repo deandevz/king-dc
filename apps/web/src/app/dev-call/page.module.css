@@ -1,0 +1,18 @@
+.page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: var(--kd-space-4);
+}
+
+.state {
+  position: absolute;
+  top: var(--kd-space-2);
+  left: var(--kd-space-2);
+  font-size: var(--kd-fs-micro);
+  font-weight: var(--kd-fw-semibold);
+  letter-spacing: var(--kd-ls-micro);
+  text-transform: uppercase;
+  color: var(--kd-text-3);
+}

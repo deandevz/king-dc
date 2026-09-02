@@ -1,0 +1,20 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+# Scripts de instalação aprovados. Os bindings nativos opcionais do dockerode
+# (cpu-features, ssh2) ficam de fora: têm fallback em JS e exigiriam toolchain
+# de compilação dentro das imagens Alpine.
+allowBuilds:
+  '@prisma/engines': true
+  esbuild: true
+  prisma: true
+  protobufjs: true
+  unrs-resolver: true
+  cpu-features: false
+  ssh2: false
+
+# Liberado explicitamente: a versão é a fixada de propósito (decisão D23) e é recente demais
+# para a política padrão de idade mínima do pnpm.
+minimumReleaseAgeExclude:
+  - livekit-client@2.22.2

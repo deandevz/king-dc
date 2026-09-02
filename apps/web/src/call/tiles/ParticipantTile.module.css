@@ -1,0 +1,110 @@
+.tile {
+  position: relative;
+  display: flex;
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+}
+
+/* Coluna da sala de espera: avatar 88 px e nome embaixo. */
+.grid {
+  flex-direction: column;
+  align-items: center;
+  gap: var(--kd-space-3);
+  width: 132px;
+  padding: 0;
+}
+
+.grid .name {
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-semibold);
+  color: var(--kd-text);
+  text-align: center;
+}
+
+/* Tile da faixa em call: retângulo de 104 px que divide a largura igualmente. */
+.strip {
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  flex-basis: 0;
+  min-width: 0;
+  height: 104px;
+  padding: 0;
+  border: 1px solid var(--kd-border);
+  border-radius: var(--kd-radius-md);
+  background: var(--kd-glass-soft);
+}
+
+.strip .name {
+  position: absolute;
+  left: 10px;
+  bottom: 9px;
+  max-width: calc(100% - 40px);
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-2);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.speaking {
+  border: 1.5px solid var(--kd-accent);
+  background: var(--kd-accent-faint);
+  box-shadow: var(--kd-shadow-speaking-tile);
+}
+
+.sharing {
+  border-color: var(--kd-accent-border);
+}
+
+.avatarSlot {
+  position: relative;
+  display: inline-flex;
+}
+
+.status {
+  position: absolute;
+  right: 10px;
+  bottom: 9px;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Badge circular sobreposto ao avatar grande da sala de espera. */
+.badge {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--kd-accent-border);
+  border-radius: 50%;
+  background: #17171d;
+}
+
+.badgeMuted {
+  border-color: var(--kd-danger-border);
+}
+
+.muteIcon {
+  color: var(--kd-danger);
+}
+
+.shareIcon {
+  color: var(--kd-accent);
+}
+
+button.tile {
+  cursor: pointer;
+}
+
+button.tile:focus-visible {
+  outline: none;
+  box-shadow: var(--kd-ring-focus);
+}

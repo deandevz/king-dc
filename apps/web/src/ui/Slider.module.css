@@ -1,0 +1,81 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--kd-fs-label);
+  font-weight: var(--kd-fw-semibold);
+  color: var(--kd-text);
+}
+
+.value {
+  font-size: 12px;
+  font-weight: var(--kd-fw-medium);
+  color: var(--kd-text-3);
+}
+
+.input {
+  width: 100%;
+  height: 16px;
+  margin: 0;
+  padding: 0;
+  background: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.input:focus {
+  outline: none;
+}
+
+/* Trilho 4px, preenchido em accent até o valor. */
+.input::-webkit-slider-runnable-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--kd-accent) 0 var(--kd-fill),
+    rgba(255, 255, 255, 0.1) var(--kd-fill) 100%
+  );
+}
+
+.input::-moz-range-track {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.input::-moz-range-progress {
+  height: 4px;
+  border-radius: 2px;
+  background: var(--kd-accent);
+}
+
+.input::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  margin-top: -6px;
+  border: none;
+  border-radius: 50%;
+  background: var(--kd-text);
+  box-shadow: 0 0 0 4px rgba(126, 231, 196, 0.18);
+}
+
+.input::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: none;
+  border-radius: 50%;
+  background: var(--kd-text);
+  box-shadow: 0 0 0 4px rgba(126, 231, 196, 0.18);
+}
+
+.input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px rgba(126, 231, 196, 0.35);
+}

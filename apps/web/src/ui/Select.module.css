@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.label {
+  font-size: var(--kd-fs-micro);
+  font-weight: var(--kd-fw-semibold);
+  letter-spacing: 0.08em;
+  color: var(--kd-text-3);
+  text-transform: uppercase;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  gap: var(--kd-space-3);
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--kd-border-field);
+  border-radius: var(--kd-radius-md);
+  background: var(--kd-glass);
+  color: var(--kd-text-2);
+}
+
+.control:focus-within {
+  border-color: var(--kd-accent-focus);
+  box-shadow: var(--kd-ring-focus);
+}
+
+.select {
+  flex-grow: 1;
+  min-width: 0;
+  border: none;
+  background: none;
+  color: var(--kd-text);
+  font-family: inherit;
+  font-size: var(--kd-fs-body);
+  font-weight: var(--kd-fw-semibold);
+  appearance: none;
+  cursor: pointer;
+}
+
+.select:focus {
+  outline: none;
+}
+
+.select:disabled {
+  color: var(--kd-text-3);
+  cursor: not-allowed;
+}
+
+.select option {
+  background: #14141a;
+  color: var(--kd-text);
+}
+
+.chevron {
+  flex-shrink: 0;
+  color: var(--kd-text-3);
+  pointer-events: none;
+}

@@ -1,0 +1,41 @@
+{
+  "name": "web",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --port 3001",
+    "mock": "node mocks/server.mjs",
+    "build": "next build",
+    "start": "next start --port 3001",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src e2e",
+    "test": "vitest run",
+    "test:e2e": "API_INTERNAL_URL=http://localhost:${MOCK_PORT:-3900} NEXT_PUBLIC_DEV_CALL=1 next build && playwright test",
+    "test:qa": "QA_REAL=1 playwright test --config e2e/qa/playwright.qa.config.ts"
+  },
+  "dependencies": {
+    "@kingdc/contracts": "workspace:*",
+    "@livekit/components-react": "2.9.24",
+    "livekit-client": "2.22.2",
+    "next": "16.3.4",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "swr": "2.5.1",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@next/eslint-plugin-next": "16.3.4",
+    "@playwright/test": "1.62.1",
+    "@types/node": "22.20.1",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "eslint": "10.9.1",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "happy-dom": "20.12.0",
+    "livekit-server-sdk": "2.18.0",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.69.0",
+    "vitest": "4.1.11"
+  }
+}

@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; background: #0b0b0f; font-family: 'Manrope', 'SF Pro Display', -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #7EE7C4; text-decoration: none; }
+    a:hover { color: #A9F2DA; }
+    .grain { position: absolute; inset: 0; pointer-events: none; opacity: 0.04; background-size: 180px 180px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; background: #0b0b0f; color: #ECEEF1;">
+
+  <div style="position: absolute; top: -260px; left: 320px; width: 900px; height: 600px; border-radius: 50%; background: radial-gradient(closest-side, rgba(126,231,196,0.055), rgba(126,231,196,0));"></div>
+  <div class="grain"></div>
+
+  <div style="position: relative; display: flex; width: 1440px; height: 900px;">
+
+    <div style="display: flex; flex-direction: column; width: 280px; height: 900px; padding: 28px 16px; border-right: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.025); backdrop-filter: blur(24px);">
+
+      <div style="padding: 0 10px 22px 10px; font-size: 17px; font-weight: 700; letter-spacing: -0.02em;">Configurações</div>
+
+      <div style="padding: 0 10px 10px 10px; font-size: 11px; font-weight: 600; letter-spacing: 0.10em; color: #55575F;">PREFERÊNCIAS</div>
+
+      <div style="display: flex; flex-direction: column; gap: 3px; flex-grow: 1;">
+        <div style="display: flex; align-items: center; gap: 11px; height: 40px; padding: 0 12px; border-radius: 10px; background: rgba(255,255,255,0.055);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#7EE7C4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.6 20v-1a4.4 4.4 0 0 1 4.4-4.4h6a4.4 4.4 0 0 1 4.4 4.4v1"/></svg>
+          <div style="font-size: 14px; font-weight: 600;">Perfil e áudio</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 11px; height: 40px; padding: 0 12px; border-radius: 10px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6B6D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 3.5v17"/></svg>
+          <div style="font-size: 14px; font-weight: 500; color: #9A9CA8;">Aparência</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 11px; height: 40px; padding: 0 12px; border-radius: 10px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6B6D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5.5" width="19" height="13" rx="2.4"/><path d="M6.5 9.5h.01M10 9.5h.01M13.5 9.5h.01M17 9.5h.01M8 14h8"/></svg>
+          <div style="font-size: 14px; font-weight: 500; color: #9A9CA8;">Atalhos</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 11px; height: 40px; padding: 0 12px; border-radius: 10px;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6B6D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 16.5v-4.2"/><path d="M12 8.4h.01"/></svg>
+          <div style="font-size: 14px; font-weight: 500; color: #9A9CA8;">Sobre</div>
+        </div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 11px; height: 40px; padding: 0 12px; border-radius: 10px;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#FF7A7A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 21H5.5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 16.5 4.5-4.5L16 7.5"/><path d="M20.5 12H10"/></svg>
+        <div style="font-size: 14px; font-weight: 600; color: #FF7A7A;">Sair da conta</div>
+      </div>
+    </div>
+
+    <div style="position: relative; display: flex; flex-direction: column; width: 1160px; height: 900px; padding: 44px 48px;">
+
+      <div style="position: absolute; top: 32px; right: 40px; display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <div style="display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.04);">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9A9CA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 6.5 17.5 17.5"/><path d="M17.5 6.5 6.5 17.5"/></svg>
+        </div>
+        <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.08em; color: #55575F;">ESC</div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 8px; padding-bottom: 32px;">
+        <div style="font-size: 28px; font-weight: 700; letter-spacing: -0.03em;">Perfil e áudio</div>
+        <div style="font-size: 14px; font-weight: 500; color: #8B8D98;">Como você aparece pros outros e quais dispositivos o King DC usa.</div>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 40px;">
+
+        <div style="display: flex; flex-direction: column; gap: 26px; padding: 28px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.035); backdrop-filter: blur(24px);">
+
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.10em; color: #6B6D79;">MEU PERFIL</div>
+
+          <div style="display: flex; align-items: center; gap: 20px;">
+            <div style="display: flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(140deg, #2E3440, #454C5C); font-size: 28px; font-weight: 700; color: rgba(255,255,255,0.8);">B</div>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+              <div style="display: flex; align-items: center; justify-content: center; height: 38px; padding: 0 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); font-size: 13px; font-weight: 600;">Trocar foto</div>
+              <div style="font-size: 12px; font-weight: 500; color: #6B6D79;">PNG ou JPG, até 2 MB</div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6B6D79;">NICK</div>
+            <div style="display: flex; align-items: center; height: 46px; padding: 0 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04); font-size: 15px; font-weight: 600;">bruce</div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6B6D79;">CÓDIGO DE CONVITE</div>
+            <div style="display: flex; align-items: center; gap: 12px; height: 46px; padding: 0 12px 0 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.02);">
+              <div style="font-size: 15px; font-weight: 600; letter-spacing: 0.12em; color: #9A9CA8; flex-grow: 1;">KING4Q</div>
+              <div style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(255,255,255,0.05);">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#9A9CA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="8.5" y="8.5" width="12" height="12" rx="2.2"/><path d="M15.5 5.5v-.5a2 2 0 0 0-2-2h-8a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h.5"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: flex-end;">
+            <div style="display: flex; align-items: center; justify-content: center; height: 44px; padding: 0 24px; border-radius: 12px; background: #7EE7C4; color: #06120E; font-size: 14px; font-weight: 700; box-shadow: 0 8px 26px rgba(126,231,196,0.20);">Salvar</div>
+          </div>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 26px; padding: 28px; border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.035); backdrop-filter: blur(24px);">
+
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.10em; color: #6B6D79;">DISPOSITIVOS DE ÁUDIO</div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6B6D79;">ENTRADA</div>
+            <div style="display: flex; align-items: center; gap: 12px; height: 46px; padding: 0 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9A9CA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M19 10.5v1.5a7 7 0 0 1-14 0v-1.5"/><path d="M12 19v2.5"/></svg>
+              <div style="font-size: 14px; font-weight: 600; flex-grow: 1;">MacBook Pro · Microfone</div>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6B6D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10.5 12 15l5-4.5"/></svg>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6B6D79;">SAÍDA</div>
+            <div style="display: flex; align-items: center; gap: 12px; height: 46px; padding: 0 16px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.04);">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#9A9CA8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.2 14h2.6a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4.6a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1.2a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+              <div style="font-size: 14px; font-weight: 600; flex-grow: 1;">AirPods Pro</div>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#6B6D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10.5 12 15l5-4.5"/></svg>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 13px; font-weight: 600;">Volume do microfone</div>
+              <div style="font-size: 12px; font-weight: 600; color: #8B8D98;">78</div>
+            </div>
+            <div style="position: relative; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.10);">
+              <div style="width: 78%; height: 4px; border-radius: 2px; background: #7EE7C4;"></div>
+              <div style="position: absolute; left: 78%; top: -6px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: #ECEEF1; box-shadow: 0 0 0 4px rgba(126,231,196,0.18);"></div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 14px;">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div style="font-size: 13px; font-weight: 600;">Volume de saída</div>
+              <div style="font-size: 12px; font-weight: 600; color: #8B8D98;">62</div>
+            </div>
+            <div style="position: relative; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.10);">
+              <div style="width: 62%; height: 4px; border-radius: 2px; background: #7EE7C4;"></div>
+              <div style="position: absolute; left: 62%; top: -6px; width: 16px; height: 16px; margin-left: -8px; border-radius: 50%; background: #ECEEF1; box-shadow: 0 0 0 4px rgba(126,231,196,0.18);"></div>
+            </div>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 12px;">
+            <div style="font-size: 13px; font-weight: 600;">Modo de entrada</div>
+            <div style="display: flex; gap: 4px; padding: 4px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03);">
+              <div style="display: flex; align-items: center; justify-content: center; height: 36px; flex-grow: 1; border-radius: 9px; background: rgba(126,231,196,0.12); font-size: 13px; font-weight: 700; color: #7EE7C4;">Detecção de voz</div>
+              <div style="display: flex; align-items: center; justify-content: center; height: 36px; flex-grow: 1; border-radius: 9px; font-size: 13px; font-weight: 600; color: #9A9CA8;">Apertar pra falar</div>
+            </div>
+          </div>
+
+          <div style="display: flex; align-items: center; gap: 16px;">
+            <div style="display: flex; align-items: center; justify-content: center; height: 38px; padding: 0 16px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); font-size: 13px; font-weight: 600;">Testar microfone</div>
+            <div style="display: flex; align-items: center; gap: 4px; flex-grow: 1;">
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: #7EE7C4;"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: #7EE7C4;"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: #7EE7C4;"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: #7EE7C4;"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: #7EE7C4;"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: rgba(255,255,255,0.10);"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: rgba(255,255,255,0.10);"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: rgba(255,255,255,0.10);"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: rgba(255,255,255,0.10);"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: rgba(255,255,255,0.10);"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: rgba(255,255,255,0.10);"></div>
+              <div style="width: 4px; height: 16px; border-radius: 2px; background: rgba(255,255,255,0.10);"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+  <style>
+    body { margin: 0; background: #0b0b0f; font-family: 'Manrope', 'SF Pro Display', -apple-system, 'Segoe UI', sans-serif; -webkit-font-smoothing: antialiased; }
+    a { color: #7EE7C4; text-decoration: none; }
+    a:hover { color: #A9F2DA; }
+    .grain { position: absolute; inset: 0; pointer-events: none; opacity: 0.04; background-size: 180px 180px; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  </style>
+</helmet>
+<div style="position: relative; width: 1440px; height: 900px; overflow: hidden; background: #0b0b0f; color: #ECEEF1;">
+
+  <div style="position: absolute; top: -260px; left: 50%; width: 1000px; height: 640px; transform: translateX(-50%); border-radius: 50%; background: radial-gradient(closest-side, rgba(126,231,196,0.08), rgba(126,231,196,0));"></div>
+  <div class="grain"></div>
+
+  <div style="position: relative; width: 1440px; height: 900px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 24px;">
+
+    <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.10em; color: #6B6D79;">PASSO 2 DE 2</div>
+
+    <div style="width: 520px; padding: 40px; border-radius: 20px; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); backdrop-filter: blur(24px); box-shadow: 0 24px 60px rgba(0,0,0,0.45); display: flex; flex-direction: column; gap: 32px;">
+
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Como você quer aparecer?</div>
+        <div style="font-size: 14px; font-weight: 500; line-height: 1.5; color: #9A9CA8; text-wrap: pretty;">É isso que a galera vê quando você entra numa call.</div>
+      </div>
+
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; width: 104px; height: 104px; border-radius: 50%; border: 1px dashed rgba(255,255,255,0.18); background: rgba(255,255,255,0.03);">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8B8D98" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2 2 0 0 1 5 6.5h1.6l1.2-2h8.4l1.2 2H19a2 2 0 0 1 2 2V18a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.5Z"/><circle cx="12" cy="13" r="3.4"/></svg>
+          <div style="font-size: 11px; font-weight: 600; color: #8B8D98;">Foto</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 10px;">
+          <div style="display: flex; align-items: center; justify-content: center; height: 40px; padding: 0 18px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); font-size: 13px; font-weight: 600;">Escolher arquivo</div>
+          <div style="font-size: 12px; font-weight: 500; color: #6B6D79;">PNG ou JPG, até 2 MB</div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6B6D79;">NICK</div>
+          <div style="font-size: 11px; font-weight: 600; color: #55575F;">5 / 24</div>
+        </div>
+        <div style="display: flex; align-items: center; height: 48px; padding: 0 16px; border-radius: 12px; border: 1px solid rgba(126,231,196,0.45); background: rgba(126,231,196,0.06); box-shadow: 0 0 0 3px rgba(126,231,196,0.08);">
+          <div style="font-size: 15px; font-weight: 600;">bruce</div>
+          <div style="width: 2px; height: 20px; margin-left: 2px; border-radius: 1px; background: #7EE7C4;"></div>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <div style="font-size: 11px; font-weight: 600; letter-spacing: 0.08em; color: #6B6D79;">PRÉVIA NA SALA</div>
+        <div style="display: flex; align-items: center; gap: 10px; height: 52px; padding: 0 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.07); background: rgba(255,255,255,0.03);">
+          <div style="display: flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 50%; background: linear-gradient(140deg, #2E3440, #454C5C); font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.72);">B</div>
+          <div style="font-size: 14px; font-weight: 600; flex-grow: 1;">bruce</div>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6B6D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2.5" width="6" height="11" rx="3"/><path d="M19 10.5v1.5a7 7 0 0 1-14 0v-1.5"/><path d="M12 19v2.5"/></svg>
+        </div>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 14px;">
+        <div style="display: flex; align-items: center; justify-content: center; height: 48px; border-radius: 12px; background: #7EE7C4; color: #06120E; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; box-shadow: 0 8px 28px rgba(126,231,196,0.22);">Entrar no King DC</div>
+        <div style="font-size: 12px; font-weight: 500; color: #6B6D79; text-align: center;">Dá pra mudar depois em Configurações.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

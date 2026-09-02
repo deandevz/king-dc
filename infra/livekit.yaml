@@ -1,0 +1,36 @@
+# Config do livekit-server self-hospedado.
+# As chaves NÃO ficam aqui: o compose passa `LIVEKIT_KEYS: "<key>: <secret>"` por ambiente,
+# então este arquivo pode ser versionado sem vazar segredo.
+port: 7880
+log_level: info
+
+rtc:
+  # Fallback TCP para quem está atrás de VPN ou firewall que bloqueia UDP.
+  tcp_port: 7881
+  port_range_start: 50000
+  port_range_end: 60000
+  use_external_ip: true
+
+turn:
+  # TURN embutido: dispensa coturn separado.
+  enabled: true
+  udp_port: 3478
+  # TURN/TLS na 443 é o plano B e só funciona se o Caddy liberar a porta.
+  # Para ligar: parar de publicar 443 no caddy, definir `domain` e `tls_port: 443` aqui,
+  # e apontar o certificado com `cert_file`/`key_file`.
+
+room:
+  # Sem gravação, sem sala pré-criada: a sala nasce no primeiro join (decisão D7).
+  auto_create: true
+  empty_timeout: 300
+  max_participants: 30
+
+# Webhook (recomendado). A API usa o evento para apagar do cache de presença o canal que
+# mudou (decisão D5), e aí o polling seguinte busca fresco em vez de servir o valor antigo.
+# Sem ele a presença dos outros canais atrasa até 2 s a mais. Para ligar, descomente e
+# troque `api_key` pela LIVEKIT_API_KEY do .env (não é segredo; o secret continua só
+# no LIVEKIT_KEYS). A URL passa pelo Caddy → Next → API, que valida a assinatura.
+# webhook:
+#   api_key: SUA_LIVEKIT_API_KEY
+#   urls:
+#     - https://kingdc.seudominio.com/api/webhooks/livekit

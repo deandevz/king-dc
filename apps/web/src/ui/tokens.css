@@ -1,0 +1,104 @@
+/*
+ * Tokens do sistema visual (docs/INTERFACE.md).
+ * Tema único escuro: tema claro está fora do escopo.
+ */
+:root {
+  /* ── Cores ───────────────────────────────────────────────────────────── */
+  --kd-bg: #0b0b0f;
+  --kd-glass: rgba(255, 255, 255, 0.04);
+  --kd-glass-soft: rgba(255, 255, 255, 0.03);
+  --kd-glass-strong: rgba(255, 255, 255, 0.05);
+  --kd-glass-hover: rgba(255, 255, 255, 0.07);
+  --kd-icon-bg: rgba(255, 255, 255, 0.06);
+
+  --kd-border: rgba(255, 255, 255, 0.08);
+  --kd-border-subtle: rgba(255, 255, 255, 0.07);
+  --kd-border-field: rgba(255, 255, 255, 0.1);
+  --kd-border-strong: rgba(255, 255, 255, 0.12);
+
+  --kd-accent: #7ee7c4;
+  --kd-accent-hover: #a9f2da;
+  --kd-accent-weak: rgba(126, 231, 196, 0.12);
+  --kd-accent-faint: rgba(126, 231, 196, 0.07);
+  --kd-accent-border: rgba(126, 231, 196, 0.22);
+  --kd-accent-focus: rgba(126, 231, 196, 0.55);
+  --kd-on-accent: #06120e;
+
+  --kd-text: #eceef1;
+  --kd-text-2: #9a9ca8;
+  --kd-text-3: #6b6d79;
+  --kd-text-4: #55575f;
+
+  --kd-danger: #ff7a7a;
+  --kd-danger-weak: rgba(255, 122, 122, 0.14);
+  --kd-danger-border: rgba(255, 122, 122, 0.35);
+
+  --kd-overlay: rgba(20, 20, 26, 0.72);
+  --kd-scrim: rgba(6, 6, 10, 0.62);
+
+  /* ── Vidro ───────────────────────────────────────────────────────────── */
+  --kd-blur-glass: 24px;
+  --kd-blur-bar: 28px;
+  --kd-blur-chip: 18px;
+
+  /* ── Tipografia ──────────────────────────────────────────────────────── */
+  --kd-font: var(--font-manrope), 'Manrope', 'SF Pro Display', -apple-system, 'Segoe UI',
+    sans-serif;
+
+  --kd-fs-display: 32px;
+  --kd-fs-title: 24px;
+  --kd-fs-subtitle: 16px;
+  --kd-fs-body: 14px;
+  --kd-fs-label: 13px;
+  --kd-fs-micro: 11px;
+
+  --kd-fw-regular: 400;
+  --kd-fw-medium: 500;
+  --kd-fw-semibold: 600;
+  --kd-fw-bold: 700;
+  --kd-fw-black: 800;
+
+  --kd-ls-display: -0.03em;
+  --kd-ls-title: -0.02em;
+  --kd-ls-micro: 0.1em;
+
+  /* ── Espaçamento ─────────────────────────────────────────────────────── */
+  --kd-space-1: 4px;
+  --kd-space-2: 8px;
+  --kd-space-3: 12px;
+  --kd-space-4: 16px;
+  --kd-space-6: 24px;
+  --kd-space-8: 32px;
+  --kd-space-12: 48px;
+
+  /* ── Raio ────────────────────────────────────────────────────────────── */
+  --kd-radius-sm: 8px;
+  --kd-radius-md: 12px;
+  --kd-radius-lg: 16px;
+  --kd-radius-pill: 999px;
+
+  /* ── Sombras ─────────────────────────────────────────────────────────── */
+  --kd-shadow-accent: 0 8px 28px rgba(126, 231, 196, 0.22);
+  --kd-shadow-card: 0 24px 60px rgba(0, 0, 0, 0.45);
+  --kd-shadow-bar: 0 20px 50px rgba(0, 0, 0, 0.55);
+  --kd-shadow-frame: 0 30px 80px rgba(0, 0, 0, 0.55);
+  --kd-shadow-speaking-tile: 0 0 26px rgba(126, 231, 196, 0.22);
+  --kd-shadow-speaking-avatar: 0 0 34px rgba(126, 231, 196, 0.4);
+  --kd-ring-speaking-sm: 0 0 0 1.5px #7ee7c4, 0 0 14px rgba(126, 231, 196, 0.45);
+  --kd-shadow-pill-accent: 0 10px 34px rgba(126, 231, 196, 0.24);
+  --kd-ring-focus: 0 0 0 3px rgba(126, 231, 196, 0.1);
+
+  /* ── Alturas de controle ─────────────────────────────────────────────── */
+  --kd-control-h: 48px;
+  --kd-control-h-compact: 38px;
+  --kd-control-h-round: 46px;
+
+  /* ── Gradientes de avatar (índice = hash do id mod 7, decisão D13) ──── */
+  --kd-avatar-0: linear-gradient(140deg, #2e3440, #454c5c);
+  --kd-avatar-1: linear-gradient(140deg, #3a3348, #56496b);
+  --kd-avatar-2: linear-gradient(140deg, #33403a, #46604f);
+  --kd-avatar-3: linear-gradient(140deg, #40343a, #5c4750);
+  --kd-avatar-4: linear-gradient(140deg, #313b44, #445a66);
+  --kd-avatar-5: linear-gradient(140deg, #3e3a30, #5c5540);
+  --kd-avatar-6: linear-gradient(140deg, #35313f, #4b4560);
+}
