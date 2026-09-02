@@ -29,6 +29,7 @@ design/classico/king-dc-classico.html
 
 # estado local de editores e ferramentas
 .claude/
+CLAUDE.local.md
 .vscode/
 .idea/
 
