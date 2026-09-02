@@ -66,7 +66,7 @@ test.describe('@livekit sala real', () => {
     await alice.getByTestId('control-mic').click();
     await expect(aliceSeenByBob).toHaveAttribute('data-muted', 'true', { timeout: 20_000 });
 
-    // Deaf é client-side: muda o estado local de Alice e não aparece para Bob.
+    // Ensurdecer muta o microfone de Alice junto (decisão D9).
     await alice.getByTestId('control-deaf').click();
     await expect(alice.getByTestId('control-deaf')).toHaveAttribute('aria-pressed', 'true');
     await expect(alice.getByTestId('control-mic')).toHaveAttribute('aria-pressed', 'false');

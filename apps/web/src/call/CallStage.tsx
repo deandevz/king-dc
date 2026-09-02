@@ -139,8 +139,8 @@ export function CallStage({
     const next = !deafened;
     playSound(deafSound(next));
     setDeafened(next);
-    if (!micEnabledAfterDeafChange(next, isMicrophoneEnabled)) setMic(false);
-  }, [deafened, isMicrophoneEnabled, playSound, setDeafened, setMic]);
+    setMic(micEnabledAfterDeafChange(next, inputMode));
+  }, [deafened, inputMode, playSound, setDeafened, setMic]);
 
   const toggleMic = useCallback((): void => {
     playSound(micSound(!isMicrophoneEnabled));
