@@ -43,4 +43,7 @@ Leia antes de mexer: `docs/ARQUITETURA.md` (decisões D1 a D24, API, modelo de d
 ## Git
 
 - Commits pequenos, mensagem em português, sem trailer de ferramenta.
+- PR e commit são escritos na voz do mantenedor (o usuário), em primeira pessoa. Nunca como
+  contribuidor externo, nunca "combinado com o mantenedor". Sem link de sessão em nenhum dos dois.
+  Mostrar o texto do PR antes de abrir.
 - Autor é o `git config` local do repo (e-mail noreply do GitHub). Não mudar.
