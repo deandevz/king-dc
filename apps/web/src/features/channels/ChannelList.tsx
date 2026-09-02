@@ -33,6 +33,9 @@ function ParticipantRow({
       {person.micMuted ? (
         <Icon name="micOff" size={14} className={styles.mutedIcon} aria-label="Microfone mudo" />
       ) : null}
+      {person.deafened ? (
+        <Icon name="headphonesOff" size={14} className={styles.mutedIcon} aria-label="Ensurdecido" />
+      ) : null}
       {person.screenSharing ? (
         <Icon name="screen" size={14} className={styles.sharingIcon} aria-label="Compartilhando tela" />
       ) : null}

@@ -44,7 +44,7 @@ beforeEach(async () => {
 test('webhook assinado corretamente responde 200 e apaga o cache do canal', async () => {
   await createChannel(testApp.app, 'geral', 0);
   testApp.app.presence.set('geral', [
-    { userId: 'u1', nickname: 'lele', avatarUrl: null, micMuted: false, screenSharing: false },
+    { userId: 'u1', nickname: 'lele', avatarUrl: null, micMuted: false, deafened: false, screenSharing: false },
   ]);
   testApp.app.presence.set('jogos', []);
   const body = eventBody('participant_joined', 'geral');

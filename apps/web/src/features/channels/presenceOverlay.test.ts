@@ -8,6 +8,7 @@ function person(userId: string, overrides: Partial<PresenceParticipant> = {}): P
     nickname: userId,
     avatarUrl: null,
     micMuted: false,
+    deafened: false,
     screenSharing: false,
     ...overrides,
   };

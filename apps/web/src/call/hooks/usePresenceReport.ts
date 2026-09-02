@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { Track } from 'livekit-client';
 import type { Participant } from 'livekit-client';
+import { DEAFENED_ATTRIBUTE, DEAFENED_ON } from '@kingdc/contracts';
 import type { PresenceParticipant } from '@kingdc/contracts';
 import { samePresenceList, toPresenceList } from '../lib/presence';
 
@@ -35,6 +36,7 @@ export function usePresenceReport(
           name: participant.name,
           metadata: participant.metadata,
           micMuted: isMicMuted(participant),
+          deafened: participant.attributes[DEAFENED_ATTRIBUTE] === DEAFENED_ON,
           screenSharing: sharing.has(participant.identity),
         })),
     );

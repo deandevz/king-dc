@@ -149,8 +149,8 @@ pnpm typecheck && pnpm lint && pnpm --filter api test && pnpm --filter web test 
   atalho global de teclado numa página web. Perder o foco ou esconder a aba solta a tecla.
 - **A mesma conta em duas abas na mesma sala derruba a primeira.** O LiveKit aceita uma
   identidade por sala; a aba expulsa volta para a sala de espera em vez de tentar reentrar.
-- **Ensurdecer é local.** Zera o volume de todo mundo e muta o microfone; ninguém mais fica
-  sabendo. Desensurdecer não desmuta.
+- **Ensurdecer zera o volume de todo mundo e muta o microfone.** Os outros veem o fone
+  cortado na sidebar, na sala de espera e no tile. Desensurdecer não desmuta.
 - **API fora do ar.** A sidebar congela na última presença conhecida com o aviso "Presença
   pode estar desatualizada", um toast avisa uma vez e a call em andamento continua (ela fala
   direto com o LiveKit). Quando a API volta, o polling recupera sozinho, sem F5.

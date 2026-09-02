@@ -48,7 +48,7 @@ beforeEach(async () => {
 /** Põe o usuário no cache de presença de `slug`, como se ele estivesse na call. */
 function putInRoom(slug: string, userId: string): void {
   testApp.app.presence.set(slug, [
-    { userId, nickname: 'antigo', avatarUrl: null, micMuted: false, screenSharing: false },
+    { userId, nickname: 'antigo', avatarUrl: null, micMuted: false, deafened: false, screenSharing: false },
   ]);
 }
 

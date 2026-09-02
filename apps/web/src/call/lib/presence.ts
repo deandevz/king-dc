@@ -8,6 +8,7 @@ export type PresenceSource = {
   metadata: string | undefined;
   /** Track de microfone ausente ou mutada, a mesma regra do `GET /channels`. */
   micMuted: boolean;
+  deafened: boolean;
   screenSharing: boolean;
 };
 
@@ -25,6 +26,7 @@ export function toPresenceList(sources: readonly PresenceSource[]): PresencePart
         nickname: profile.nickname,
         avatarUrl: profile.avatarUrl,
         micMuted: source.micMuted,
+        deafened: source.deafened,
         screenSharing: source.screenSharing,
       };
     })
@@ -45,6 +47,7 @@ export function samePresenceList(
       person.nickname === other.nickname &&
       person.avatarUrl === other.avatarUrl &&
       person.micMuted === other.micMuted &&
+      person.deafened === other.deafened &&
       person.screenSharing === other.screenSharing
     );
   });

@@ -15,7 +15,13 @@ function summary(participants: PresenceParticipant[]): string {
 }
 
 function BigAvatar({ person }: { person: PresenceParticipant }): JSX.Element {
-  const badge = person.micMuted ? 'muted' : person.screenSharing ? 'sharing' : null;
+  const badge = person.deafened
+    ? 'deafened'
+    : person.micMuted
+      ? 'muted'
+      : person.screenSharing
+        ? 'sharing'
+        : null;
 
   return (
     <li className={styles.person}>
@@ -28,8 +34,11 @@ function BigAvatar({ person }: { person: PresenceParticipant }): JSX.Element {
           muted={person.micMuted}
         />
         {badge !== null ? (
-          <span className={badge === 'muted' ? styles.badgeMuted : styles.badgeSharing}>
-            <Icon name={badge === 'muted' ? 'micOff' : 'screen'} size={13} />
+          <span className={badge === 'sharing' ? styles.badgeSharing : styles.badgeMuted}>
+            <Icon
+              name={badge === 'deafened' ? 'headphonesOff' : badge === 'muted' ? 'micOff' : 'screen'}
+              size={13}
+            />
           </span>
         ) : null}
       </span>

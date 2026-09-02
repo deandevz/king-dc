@@ -2,7 +2,7 @@ import { randomBytes } from 'node:crypto';
 import type { FastifyInstance } from 'fastify';
 import { ParticipantInfo, TrackInfo, TrackSource, TrackType } from 'livekit-server-sdk';
 import sharp from 'sharp';
-import { SESSION_COOKIE } from '@kingdc/contracts';
+import { DEAFENED_ATTRIBUTE, DEAFENED_ON, SESSION_COOKIE } from '@kingdc/contracts';
 import { generateInviteCode, inviteExpiry } from '../src/lib/invites.js';
 import { hashPassword } from '../src/lib/password.js';
 
@@ -142,6 +142,7 @@ export type FakeParticipant = {
   name?: string;
   metadata?: string;
   mic?: 'live' | 'muted' | 'none';
+  deafened?: boolean;
   screen?: boolean;
 };
 
@@ -172,6 +173,7 @@ export function participantInfo(options: FakeParticipant): ParticipantInfo {
     identity: options.identity,
     name: options.name ?? '',
     metadata: options.metadata ?? '',
+    attributes: options.deafened === true ? { [DEAFENED_ATTRIBUTE]: DEAFENED_ON } : {},
     tracks,
   });
 }

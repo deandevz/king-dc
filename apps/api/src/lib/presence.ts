@@ -1,7 +1,7 @@
 import { TrackSource } from 'livekit-server-sdk';
 import type { ParticipantInfo } from 'livekit-server-sdk';
 import { z } from 'zod';
-import { PRESENCE_CACHE_MS } from '@kingdc/contracts';
+import { DEAFENED_ATTRIBUTE, DEAFENED_ON, PRESENCE_CACHE_MS } from '@kingdc/contracts';
 import type { PresenceParticipant } from '@kingdc/contracts';
 
 type CacheEntry = {
@@ -108,8 +108,8 @@ function parseMetadata(raw: string): { nickname?: string; avatarUrl: string | nu
 }
 
 /**
- * `micMuted` = track de microfone ausente ou mutada; `screenSharing` = existe track de
- * tela.
+ * `micMuted` = track de microfone ausente ou mutada; `deafened` = atributo publicado pelo
+ * front; `screenSharing` = existe track de tela.
  */
 export function toPresenceParticipant(info: ParticipantInfo): PresenceParticipant {
   const meta = parseMetadata(info.metadata);
@@ -121,6 +121,7 @@ export function toPresenceParticipant(info: ParticipantInfo): PresenceParticipan
     nickname: meta.nickname ?? (info.name.length > 0 ? info.name : info.identity),
     avatarUrl: meta.avatarUrl,
     micMuted: !micLive,
+    deafened: info.attributes[DEAFENED_ATTRIBUTE] === DEAFENED_ON,
     screenSharing: info.tracks.some((track) => track.source === TrackSource.SCREEN_SHARE),
   };
 }
