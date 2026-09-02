@@ -24,14 +24,14 @@ são 380 fluxos; as mesmas 20 pessoas em 4 salas de 5 são 80. Salas pequenas cu
 
 ## Tabela, da mais barata para a mais cara
 
-Preços de setembro de 2026, aproximados. Na Vultr, São Paulo custa 50% a mais que a mesma máquina
-nos EUA.
+Preços de setembro de 2026, aproximados. Na Vultr, São Paulo tem uma taxa extra sobre o preço base da mesma
+máquina nos EUA: a de referência custa US$ 8 fora de São Paulo e US$ 18 lá.
 
 | VPS | Região | Preço/mês | vCPU / RAM / banda | Pico do pico em call | Uso normal em call | Abas abertas | Comunidade | Tela: h de espectador/dia | Lives de 5 por 4 h/dia |
 |---|---|---|---|---|---|---|---|---|---|
 | Vultr HP vhp-1c-1gb | EUA / SP | US$ 6 / 9 | 1 / 1 GB / 2 TB | 48 | 80 | 120 | 400 | 79 | 4 |
 | Hetzner CPX22 | EUA / UE | € 8 | 2 / 4 GB / 20 TB | 96 | 160 | 240 | 800 | 794 | 40 |
-| Vultr HP vhp-1c-2gb | EUA / SP | US$ 12 / 18 | 1 / 2 GB / 3 TB | 48 | 80 | 120 | 400 | 119 | 6 |
+| Vultr HP vhp-1c-2gb | EUA / SP | US$ 8 / 18 | 1 / 2 GB / 3 TB | 48 | 80 | 120 | 400 | 119 | 6 |
 | Hetzner CPX32 | EUA / UE | € 15 | 4 / 8 GB / 20 TB | 192 | 325 | 480 | 1.600 | 794 | 40 |
 | Vultr HP vhp-2c-2gb | EUA / SP | US$ 18 / 27 | 2 / 2 GB / 4 TB | 96 | 160 | 240 | 800 | 159 | 8 |
 | Hostinger KVM 8 | UE / BR | € 22 promo, € 50 renov. | 8 / 32 GB / 32 TB | 384 | 650 | 960 | 3.200 | 1.270 | 63 |

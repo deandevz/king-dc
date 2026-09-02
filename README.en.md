@@ -130,7 +130,7 @@ In a room of N people, each one sends one audio stream and receives N−1, so th
 
 | VPS | Price/month | In call, normal use | Community it fits | Screen: viewer h/day |
 |---|---|---|---|---|
-| Vultr 1 vCPU / 2 GB / 3 TB, São Paulo (reference deployment) | ~US$ 18 | ~80 people | ~400 members | ~120 |
+| Vultr 1 vCPU / 2 GB / 3 TB, São Paulo (reference deployment) | ~US$ 18 (US$ 8 outside SP) | ~80 people | ~400 members | ~120 |
 | Hetzner 2 vCPU / 4 GB / 20 TB, US or Europe | ~€ 8 | ~160 people | ~800 members | ~800 |
 | Vultr 4 vCPU / 8 GB / 6 TB, São Paulo | ~US$ 72 | ~325 people | ~1,600 members | ~240 |
 

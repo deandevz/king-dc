@@ -130,7 +130,7 @@ Numa sala com N pessoas, cada uma manda um fluxo de áudio e recebe N−1, entã
 
 | VPS | Preço/mês | Em call, uso normal | Comunidade que comporta | Tela: h de espectador/dia |
 |---|---|---|---|---|
-| Vultr 1 vCPU / 2 GB / 3 TB, São Paulo (a de referência) | ~US$ 18 | ~80 pessoas | ~400 membros | ~120 |
+| Vultr 1 vCPU / 2 GB / 3 TB, São Paulo (a de referência) | ~US$ 18 (US$ 8 fora de SP) | ~80 pessoas | ~400 membros | ~120 |
 | Hetzner 2 vCPU / 4 GB / 20 TB, EUA ou Europa | ~€ 8 | ~160 pessoas | ~800 membros | ~800 |
 | Vultr 4 vCPU / 8 GB / 6 TB, São Paulo | ~US$ 72 | ~325 pessoas | ~1.600 membros | ~240 |
 

@@ -25,14 +25,14 @@ streams; the same 20 people in 4 rooms of 5 is 80. Small rooms cost almost 5 tim
 
 ## Table, cheapest to priciest
 
-Prices as of September 2026, approximate. On Vultr, São Paulo costs 50% more than the same machine
-in the US.
+Prices as of September 2026, approximate. On Vultr, São Paulo carries a surcharge over the base price of the same
+machine in the US: the reference box costs US$ 8 outside São Paulo and US$ 18 there.
 
 | VPS | Region | Price/month | vCPU / RAM / bandwidth | Absolute peak in call | Normal use in call | Open tabs | Community | Screen: viewer h/day | 5-viewer streams, 4 h/day |
 |---|---|---|---|---|---|---|---|---|---|
 | Vultr HP vhp-1c-1gb | US / SP | US$ 6 / 9 | 1 / 1 GB / 2 TB | 48 | 80 | 120 | 400 | 79 | 4 |
 | Hetzner CPX22 | US / EU | € 8 | 2 / 4 GB / 20 TB | 96 | 160 | 240 | 800 | 794 | 40 |
-| Vultr HP vhp-1c-2gb | US / SP | US$ 12 / 18 | 1 / 2 GB / 3 TB | 48 | 80 | 120 | 400 | 119 | 6 |
+| Vultr HP vhp-1c-2gb | US / SP | US$ 8 / 18 | 1 / 2 GB / 3 TB | 48 | 80 | 120 | 400 | 119 | 6 |
 | Hetzner CPX32 | US / EU | € 15 | 4 / 8 GB / 20 TB | 192 | 325 | 480 | 1,600 | 794 | 40 |
 | Vultr HP vhp-2c-2gb | US / SP | US$ 18 / 27 | 2 / 2 GB / 4 TB | 96 | 160 | 240 | 800 | 159 | 8 |
 | Hostinger KVM 8 | EU / BR | € 22 promo, € 50 renewal | 8 / 32 GB / 32 TB | 384 | 650 | 960 | 3,200 | 1,270 | 63 |
