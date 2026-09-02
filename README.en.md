@@ -43,6 +43,7 @@ King DC is the simple answer. Few features, each of them complete, running on a 
 - Voice channels. The seed creates Geral, Jogos, Música and AFK; the admin creates more.
 - Screen sharing with audio, fixed at 720p 30 fps.
 - Mute, deafen, push-to-talk or voice activity detection.
+- Sounds for mute, deafen, join, leave and screen share start or stop, swappable by file.
 - Indicators for who is speaking, who is muted and who is sharing.
 - Who is in which channel, in the sidebar, refreshed every 2 s.
 - Profile with nickname and photo. The photo becomes a 256 px WebP on the server.

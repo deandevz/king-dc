@@ -43,6 +43,7 @@ O King DC é a resposta simples. Poucas funções, cada uma inteira, rodando num
 - Canais de voz. O seed cria Geral, Jogos, Música e AFK; o admin cria mais.
 - Compartilhamento de tela com áudio, fixo em 720p a 30 fps.
 - Mudo, ensurdecer, push-to-talk ou detecção de voz.
+- Sons de mudo, ensurdecer, entrar, sair e de tela começando ou parando, trocáveis por arquivo.
 - Indicador de quem está falando, quem está mutado e quem está compartilhando.
 - Quem está em qual canal, na sidebar, atualizado a cada 2 s.
 - Perfil com nick e foto. A foto vira WebP de 256 px no servidor.
