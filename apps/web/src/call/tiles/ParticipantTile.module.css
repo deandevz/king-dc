@@ -85,7 +85,7 @@
   height: 26px;
   border: 1px solid var(--kd-accent-border);
   border-radius: 50%;
-  background: #17171d;
+  background: var(--kd-surface);
 }
 
 .badgeMuted {

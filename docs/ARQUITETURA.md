@@ -63,7 +63,7 @@ começa por atualizar esta tabela.
 | D8 | Tela | 1280×720 a 30 fps, 2 Mbps, `contentHint: 'detail'`, com áudio. Simulcast ligado. Sem seletor de qualidade. | É o preset oficial do SDK. 60 fps custaria 1,5 vez mais banda para uma melhora que não importa em tela compartilhada. |
 | D9 | Ensurdecer | No cliente: volume zero em todo remoto e microfone mutado. Ensurdecer muta o microfone; desensurdecer religa, exceto em push-to-talk. O estado vai para os outros como atributo `deafened = '1'` do participante, lido pela sala e pelo `listParticipants` da API: sidebar, sala de espera e tile mostram o fone cortado. | O LiveKit não tem esse conceito. Semântica igual à do Discord. Todo mundo precisa ver, senão alguém fala com quem não está ouvindo. |
 | D10 | Preferências de áudio | Só no `localStorage`, chave `kingdc.audio`: dispositivo de entrada e saída, volume de saída, modo do microfone e tecla do push-to-talk. | IDs de dispositivo são por browser. Não vale um endpoint. |
-| D11 | Volume do microfone | Não existe slider de ganho de entrada. Só volume de saída. | Ganho de entrada exigiria Web Audio no caminho da track. O `autoGainControl` do browser já cobre. |
+| D11 | Volume do microfone | Não existe slider de ganho de entrada. Quem fala alto demais é ajustado por quem ouve (D26). | Ganho de entrada exigiria Web Audio no caminho da track. O `autoGainControl` do browser já cobre. |
 | D12 | Push-to-talk | Tecla padrão `Backquote`. Segurar liga o microfone, soltar desliga. Só com a aba em foco. | Não existe atalho global de teclado numa página web. A UI avisa. |
 | D13 | Avatar | PNG, JPG ou WebP até 5 MB, validado por decodificação real, salvo como WebP 256×256 em `/data/avatars/<userId>.webp`. URL com `?v=<epoch>`. Sem foto: gradiente e inicial, índice = hash do id mod 7. | O `?v=` quebra o cache ao trocar a foto. |
 | D14 | Apelido | 2 a 24 unidades UTF-16, sem caracteres de controle ou formatação (zero-width, RTL override), ao menos um visível. Não precisa ser único. | O contador da UI é "5 / 24" e usa `String.length`. Front e API concordam. |
@@ -79,8 +79,10 @@ começa por atualizar esta tabela.
 | D24 | Compose | Um `docker-compose.yml`. `livekit` e `caddy` no profile `prod`. O `docker-compose.override.yml` só publica portas para desenvolvimento. | Profile é topologia (sobe ou não). Override é valor (porta, env). |
 | D25 | Sons | Oito MP3 de nome fixo em `apps/web/public/sounds/`: `mutar`, `desmutar`, `mute-fone`, `desmute-fone` (só quem clicou ouve) e `entrou`, `saiu`, `tela-inicio`, `tela-fim` (todo mundo na mesma sala, pelos eventos da sala). Push-to-talk não toca. Saem no dispositivo e volume de saída das preferências, mesmo ensurdecido. Trocar o som é trocar o arquivo. | Feedback igual ao do Discord. Quem entra numa sala cheia, com tela aberta, ouve só o próprio "entrou": o SDK só emite `ParticipantConnected` e `TrackPublished` depois de conectado. Quem sai compartilhando gera só "saiu". |
 
+| D26 | Volume por participante | Botão direito no tile de um remoto abre um slider de 0 a 100 %. Só quem ajustou ouve diferente; a pessoa ajustada não sabe. Guardado no `localStorage`, chave `kingdc.volumes`, mapa `userId → 0..1`, então vale em qualquer canal e sessão. Volume final = saída × individual, e zero se ensurdecido. Um hook só (`useRemoteVolumes`) aplica tudo. | Acima de 100 % exigiria `webAudioMix` na sala, e com ele a troca de dispositivo de saída depende de `AudioContext.setSinkId`, que Firefox e Safari não têm. O problema real é microfone alto demais; reduzir resolve. |
+
 Fora do escopo, de propósito: chat de texto, mensagens diretas, histórico, OAuth, câmera,
-gravação, celular, editar ou apagar canal, volume por participante, cargos além de admin,
+gravação, celular, editar ou apagar canal, cargos além de admin,
 e-mail, recuperação de senha (o admin gera um convite novo), notificações, tema claro, outros
 idiomas.
 
@@ -262,7 +264,7 @@ Components e buscam dados com SWR em `/api/...`.
 apps/web/src
   app/                rotas, só compõem módulos
   ui/                 primitivos: Button, Field, CodeInput, Avatar, Glass, Slider,
-                      Segmented, Badge, Toast, Modal, Icon. Sem lógica de domínio.
+                      Segmented, Badge, Toast, Modal, Popover, Icon. Sem lógica de domínio.
   ui/tokens.css       variáveis CSS do sistema visual
   features/auth       login, logout, useMe
   features/profile    onboarding, upload de avatar, avatar sem foto
@@ -277,8 +279,8 @@ apps/web/src
 ### O módulo `call/`
 
 `CallRoom` é dono da conexão, da renovação do token, do `RoomAudioRenderer`, do aviso de
-autoplay, dos tiles, do foco de tela compartilhada, da barra de controles, do push-to-talk e
-do indicador de fala. Ele não sabe de rotas, cookies nem `fetch` além do `getToken` injetado.
+autoplay, dos tiles, do foco de tela compartilhada, do menu de volume por participante, da
+barra de controles, do push-to-talk e do indicador de fala. Ele não sabe de rotas, cookies nem `fetch` além do `getToken` injetado.
 A interface está em `packages/contracts/src/call.ts`:
 
 ```ts
@@ -380,8 +382,10 @@ Coisas que parecem estranhas à primeira leitura e têm motivo.
 - Quedas definitivas (`DUPLICATE_IDENTITY`, `PARTICIPANT_REMOVED`, `ROOM_DELETED`,
   `ROOM_CLOSED`) voltam para a sala de espera sem renovar token. Antes, a mesma conta em duas
   abas fazia cada aba renovar e reentrar, expulsando a outra para sempre.
-- O `RoomAudioRenderer` recebe o volume já com o ensurdecer aplicado. Ele reaplica
-  `setVolume` a cada track nova, o que desfaria o volume zero de quem entra durante o deaf.
+- O `RoomAudioRenderer` não recebe `volume`: ele só anexa os elementos de áudio. Quem
+  escreve volume é `useRemoteVolumes`, por participante, com ensurdecer, saída e volume
+  individual numa conta só. Dois escritores do mesmo valor se desfaziam um ao outro: o
+  renderer reaplicava o volume global por cima do individual a cada mudança.
 - O foco de tela é escolhido por evento (`TrackPublished`), não por ordem guardada em estado.
   Guardar a ordem exigia `setState` dentro de `useEffect`, barrado pelo
   `eslint-plugin-react-hooks` 7.
@@ -406,8 +410,8 @@ Coisas que parecem estranhas à primeira leitura e têm motivo.
 - Com a API fora, o browser vê um 500 do rewrite do Next, não erro de rede.
 - O `Modal` dependia de `onClose` no efeito de foco. Como o shell re-renderiza a cada poll e a
   arrow era nova a cada render, o foco pulava para o painel a cada 2 s.
-- `useAudioPrefs` usa `useSyncExternalStore` sobre o `localStorage` para não divergir na
-  hidratação.
+- `useAudioPrefs` e `useUserVolumes` usam `useSyncExternalStore` sobre o `localStorage`
+  para não divergir na hidratação.
 - `enumerateDevices` sem permissão devolve rótulos vazios. A UI mostra "Microfone 1" até o
   primeiro `getUserMedia`.
 - `lib/api.ts` passa toda resposta pelo `safeParse` do schema. Falha de rede e corpo fora do

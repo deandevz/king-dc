@@ -1,7 +1,7 @@
 'use client';
 
-import { useCallback, useEffect, useMemo, useRef } from 'react';
-import type { JSX } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { JSX, MouseEvent } from 'react';
 import { Track } from 'livekit-client';
 import {
   RoomAudioRenderer,
@@ -21,14 +21,19 @@ import { useCallSounds } from './hooks/useCallSounds';
 import { useDeafen } from './hooks/useDeafen';
 import { usePresenceReport } from './hooks/usePresenceReport';
 import { usePushToTalk } from './hooks/usePushToTalk';
+import { useRemoteVolumes } from './hooks/useRemoteVolumes';
 import { useScreenShare } from './hooks/useScreenShare';
 import { useShareFocus } from './hooks/useShareFocus';
+import { useUserVolumes } from './hooks/useUserVolumes';
 import { micEnabledAfterDeafChange, micEnabledForMode } from './lib/policies';
 import { deafSound, micSound } from './lib/sounds';
 import { pttKeyLabel } from './lib/pttLabel';
 import { buildTiles, resolveFocusedShare } from './lib/tiles';
+import type { CallTile } from './lib/tiles';
+import { userVolume } from './lib/volumes';
 import { ParticipantTile } from './tiles/ParticipantTile';
 import { ShareStage } from './tiles/ShareStage';
+import { VolumeMenu } from './tiles/VolumeMenu';
 import styles from './CallStage.module.css';
 
 export type CallStageProps = {
@@ -63,7 +68,9 @@ export function CallStage({
   const shareTracks = useTracks([Track.Source.ScreenShare]);
   const { localParticipant, isMicrophoneEnabled, isScreenShareEnabled } = useLocalParticipant();
   const { canPlayAudio, startAudio } = useAudioPlayback(room);
-  const { deafened, volume, setDeafened } = useDeafen(room, audioPrefs.outputVolume);
+  const { deafened, setDeafened } = useDeafen(room);
+  const { volumes, setVolume } = useUserVolumes();
+  useRemoteVolumes(room, deafened, audioPrefs.outputVolume, volumes);
   const screenShare = useScreenShare(room);
   useAudioDevices(room, audioPrefs);
   const playSound = useCallSounds(room, audioPrefs);
@@ -126,6 +133,19 @@ export function CallStage({
     [shareTracks],
   );
 
+  // Menu de volume aberto pelo botão direito num tile remoto (decisão D26).
+  const [menu, setMenu] = useState<{ tile: CallTile; x: number; y: number } | null>(null);
+  const closeMenu = useCallback(() => setMenu(null), []);
+  const contextMenuFor = (tile: CallTile) =>
+    tile.isLocal
+      ? {}
+      : {
+          onContextMenu: (event: MouseEvent<HTMLElement>) => {
+            event.preventDefault();
+            setMenu({ tile, x: event.clientX, y: event.clientY });
+          },
+        };
+
   const { selected, gridForced, focusShare, exitFocus } = useShareFocus(room);
   const liveShareSids = shareTracks.map((reference) => reference.publication.trackSid);
   const focusedSid = resolveFocusedShare(liveShareSids, selected);
@@ -159,7 +179,7 @@ export function CallStage({
 
   return (
     <div className={styles.stage}>
-      <RoomAudioRenderer volume={volume} />
+      <RoomAudioRenderer />
 
       {connection === 'connected' ? null : (
         <div className={styles.banner} role="status">
@@ -187,6 +207,7 @@ export function CallStage({
                   tile={tile}
                   variant="strip"
                   {...(otherShare ? { onClick: () => focusShare(sid) } : {})}
+                  {...contextMenuFor(tile)}
                 />
               );
             })}
@@ -205,10 +226,22 @@ export function CallStage({
                 tile={tile}
                 variant="grid"
                 {...(sid === undefined ? {} : { onClick: () => focusShare(sid) })}
+                {...contextMenuFor(tile)}
               />
             );
           })}
         </div>
+      )}
+
+      {menu === null ? null : (
+        <VolumeMenu
+          nickname={menu.tile.nickname}
+          value={userVolume(volumes, menu.tile.identity)}
+          x={menu.x}
+          y={menu.y}
+          onChange={(value) => setVolume(menu.tile.identity, value)}
+          onClose={closeMenu}
+        />
       )}
 
       {canPlayAudio ? null : <AudioGate onStart={startAudio} />}

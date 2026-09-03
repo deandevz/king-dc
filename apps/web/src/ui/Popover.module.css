@@ -1,0 +1,14 @@
+.panel {
+  position: fixed;
+  z-index: 40;
+  width: 240px;
+  padding: var(--kd-space-4);
+  border: 1px solid var(--kd-border);
+  border-radius: var(--kd-radius-md);
+  background: var(--kd-surface);
+  box-shadow: var(--kd-shadow-card);
+}
+
+.panel:focus {
+  outline: none;
+}

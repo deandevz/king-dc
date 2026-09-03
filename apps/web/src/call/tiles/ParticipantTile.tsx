@@ -1,6 +1,6 @@
 'use client';
 
-import type { JSX } from 'react';
+import type { JSX, MouseEvent } from 'react';
 import { Track } from 'livekit-client';
 import type { Participant } from 'livekit-client';
 import { useIsMuted, useIsSpeaking, useParticipantAttribute } from '@livekit/components-react';
@@ -16,6 +16,8 @@ export type ParticipantTileProps = {
   /** `grid` é a coluna de 132 px da sala de espera; `strip` é o tile de 104 px da call. */
   variant: 'grid' | 'strip';
   onClick?: () => void;
+  /** Botão direito: menu de volume individual, só nos remotos (decisão D26). */
+  onContextMenu?: (event: MouseEvent<HTMLElement>) => void;
 };
 
 export function ParticipantTile({
@@ -23,6 +25,7 @@ export function ParticipantTile({
   tile,
   variant,
   onClick,
+  onContextMenu,
 }: ParticipantTileProps): JSX.Element {
   const speaking = useIsSpeaking(participant);
   const muted = useIsMuted({ participant, source: Track.Source.Microphone });
@@ -71,6 +74,7 @@ export function ParticipantTile({
   );
 
   const flags = {
+    onContextMenu,
     'data-identity': tile.identity,
     'data-muted': String(muted),
     'data-deafened': String(deafened),

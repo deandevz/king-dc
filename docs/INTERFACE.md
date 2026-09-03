@@ -18,6 +18,7 @@ menta. Duas colunas, sem barra de servidores, porque existe um servidor só.
 | Texto | `#ECEEF1` principal, `#9A9CA8` secundário, `#6B6D79` terciário, `#55575F` apagado |
 | Perigo | `#FF7A7A`. Fundo 14%, borda 35% |
 | Overlay | `rgba(20, 20, 26, 0.72)` |
+| Superfície sólida | `#17171D`. Menu de contexto e badge do avatar, onde vidro atrapalha a leitura |
 | Texto sobre accent | `#06120E` |
 
 Toda tela tem um glow radial menta a 7 a 10% e um grão SVG com opacidade em torno de 0,035.
@@ -98,10 +99,15 @@ no canto inferior direito.
 ## Componentes em `ui/`
 
 Button e IconButton, Field, CodeInput, Avatar, Glass, Slider, Segmented, Badge, Toast, Modal,
-Screen, Select, Icon (20 SVGs inline).
+Popover, Screen, Select, Icon (20 SVGs inline).
 
 O Modal fecha com ESC e clique no fundo, devolve o foco ao botão que o abriu e empilha: a
 confirmação de sair da conta abre por cima das configurações, e ESC fecha só o do topo.
+
+O Popover é o menu de contexto: painel de 240 px ancorado no ponto do clique, puxado para
+dentro da viewport com margem de 8 px, fundo sólido `--kd-surface`, sem vidro.
+Fecha com ESC e clique fora. Hoje só o botão direito num tile remoto usa, com o Slider de
+volume individual.
 
 Regras: toda cor, raio, sombra e espaço sai de `tokens.css`. Um CSS Module por componente.
 `cx()` junta classes. Nada de lógica de domínio dentro de `ui/`.

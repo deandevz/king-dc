@@ -49,6 +49,9 @@ export const SESSION_TTL_DAYS = 30;
 /** Chave do localStorage com as preferências de áudio (decisão D10). */
 export const AUDIO_PREFS_STORAGE_KEY = 'kingdc.audio';
 
+/** Chave do localStorage com o volume por participante (decisão D26). */
+export const USER_VOLUMES_STORAGE_KEY = 'kingdc.volumes';
+
 /** Tecla padrão do push-to-talk (decisão D12). */
 export const DEFAULT_PTT_KEY = 'Backquote';
 

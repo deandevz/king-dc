@@ -2,13 +2,13 @@ import { DisconnectReason } from 'livekit-client';
 import type { AudioPrefs } from '../types';
 
 /**
- * Volume aplicado aos participantes remotos. Ensurdecido zera tudo (decisão D9);
- * fora disso vale o volume de saída das preferências, preso em 0..1.
+ * Volume aplicado a um participante remoto. Ensurdecido zera tudo (decisão D9); fora disso
+ * é o volume de saída das preferências vezes o volume individual (decisão D26), preso em 0..1.
  */
-export function remoteVolume(deafened: boolean, outputVolume: number): number {
+export function remoteVolume(deafened: boolean, outputVolume: number, userVolume = 1): number {
   if (deafened) return 0;
-  if (!Number.isFinite(outputVolume)) return 1;
-  return Math.min(1, Math.max(0, outputVolume));
+  const output = Number.isFinite(outputVolume) ? outputVolume : 1;
+  return Math.min(1, Math.max(0, output * userVolume));
 }
 
 /**
