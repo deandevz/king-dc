@@ -21,6 +21,13 @@ export const DEFAULT_AUDIO_PREFS: AudioPrefs = {
   pttKey: DEFAULT_PTT_KEY,
 };
 
+/**
+ * Volume por participante, id do usuário → 0..1, só no localStorage de quem ajustou
+ * (decisão D26). Quem não está no mapa fica em 1.
+ */
+export const userVolumesSchema = z.record(z.string().min(1), z.number().min(0).max(1));
+export type UserVolumes = z.infer<typeof userVolumesSchema>;
+
 /** Estados de conexão que a sala reporta para fora. */
 export const callConnectionStates = [
   'connecting',

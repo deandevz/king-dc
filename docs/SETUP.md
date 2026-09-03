@@ -152,6 +152,9 @@ pnpm typecheck && pnpm lint && pnpm --filter api test && pnpm --filter web test 
 - **Ensurdecer zera o volume de todo mundo e muta o microfone.** Os outros veem o fone
   cortado na sidebar, na sala de espera e no tile. Desensurdecer religa o microfone, menos em
   push-to-talk.
+- **Volume por pessoa vai só até 100 %.** Botão direito no tile de quem está na call abre o
+  slider. Só reduz: aumentar acima do original exigiria Web Audio na sala e quebraria a
+  escolha de saída no Firefox e no Safari. O ajuste fica no browser de quem mexeu.
 - **API fora do ar.** A sidebar congela na última presença conhecida com o aviso "Presença
   pode estar desatualizada", um toast avisa uma vez e a call em andamento continua (ela fala
   direto com o LiveKit). Quando a API volta, o polling recupera sozinho, sem F5.

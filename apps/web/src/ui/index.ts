@@ -16,6 +16,8 @@ export { Icon } from './Icon';
 export type { IconName, IconProps } from './Icon';
 export { Modal } from './Modal';
 export type { ModalProps } from './Modal';
+export { Popover } from './Popover';
+export type { PopoverProps } from './Popover';
 export { Screen } from './Screen';
 export type { ScreenProps } from './Screen';
 export { Segmented } from './Segmented';

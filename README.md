@@ -49,6 +49,7 @@ O King DC é a resposta simples. Poucas funções, cada uma inteira, rodando num
 - Perfil com nick e foto. A foto vira WebP de 256 px no servidor.
 - Convite por código de 6 caracteres, válido por 7 dias. O código é o login.
 - Escolha de microfone e saída, teste de mic e volume geral de saída.
+- Volume por pessoa, com o botão direito no tile. Só você ouve a diferença.
 - TLS automático, migrações no boot, script de backup.
 
 </td>
@@ -60,7 +61,6 @@ O King DC é a resposta simples. Poucas funções, cada uma inteira, rodando num
 - Login com Google ou Discord, e-mail, recuperação de senha. Perdeu a senha? O admin gera um convite novo.
 - Interface para celular. O layout é de desktop, com largura mínima de 1280 px. No celular, entrar na call, falar e ver a tela dos outros funciona; compartilhar a própria tela não.
 - Vários servidores ou cargos além de admin.
-- Volume por participante (está no roadmap).
 - Tema claro ou outro idioma. A interface é só em português e só escura.
 
 </td>
@@ -188,10 +188,10 @@ docs                setup, arquitetura, interface e capacidade
 - **Ensurdecer é no cliente.** O LiveKit não tem esse conceito, então o front zera o volume de todo mundo e muta o microfone. Ninguém mais fica sabendo.
 - **Tela fixa em 720p30.** É o preset oficial do SDK. Sessenta quadros custariam 1,5 vez mais banda para uma melhora que não importa em tela compartilhada, e banda é a conta que chega.
 - **O token da sala é assinado localmente.** A API não consulta o LiveKit para dar acesso; se o LiveKit cair, quem já está na call continua e quem tenta entrar descobre na hora.
-- **Preferências de áudio ficam no browser.** Dispositivo, volume, modo do microfone e tecla do push-to-talk vivem no `localStorage`. Não vale um endpoint para isso.
+- **Preferências de áudio ficam no browser.** Dispositivo, volume, modo do microfone, tecla do push-to-talk e o volume de cada pessoa vivem no `localStorage`. Não vale um endpoint para isso.
 - **Nenhum segredo chega ao bundle.** O front recebe a URL do LiveKit junto com o token, não por variável de ambiente pública.
 
-As 24 decisões, com o motivo de cada uma, estão em [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md#3-decisões-de-projeto).
+As 26 decisões, com o motivo de cada uma, estão em [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md#3-decisões-de-projeto).
 
 ## Limites conhecidos
 
@@ -210,7 +210,6 @@ A lista completa, com os sintomas e o que fazer, está em [`docs/SETUP.md`](docs
 Curto e sem promessa de data.
 
 - Trocar o polling de 2 s por SSE, para a presença dos outros canais chegar na hora e a API aguentar mais gente online.
-- Volume por participante.
 - Chat de texto opcional, desligado por padrão, sem histórico longo.
 - Portar a interface para o celular, com layout responsivo. Voz e ver a tela já funcionam no browser do celular hoje; falta a UI acompanhar.
 

@@ -98,10 +98,15 @@ no canto inferior direito.
 ## Componentes em `ui/`
 
 Button e IconButton, Field, CodeInput, Avatar, Glass, Slider, Segmented, Badge, Toast, Modal,
-Screen, Select, Icon (20 SVGs inline).
+Popover, Screen, Select, Icon (20 SVGs inline).
 
 O Modal fecha com ESC e clique no fundo, devolve o foco ao botão que o abriu e empilha: a
 confirmação de sair da conta abre por cima das configurações, e ESC fecha só o do topo.
+
+O Popover é o menu de contexto: painel de 240 px ancorado no ponto do clique, puxado para
+dentro da viewport com margem de 8 px, fundo `--kd-overlay` com o mesmo vidro do Modal.
+Fecha com ESC e clique fora. Hoje só o botão direito num tile remoto usa, com o Slider de
+volume individual.
 
 Regras: toda cor, raio, sombra e espaço sai de `tokens.css`. Um CSS Module por componente.
 `cx()` junta classes. Nada de lógica de domínio dentro de `ui/`.

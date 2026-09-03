@@ -47,7 +47,7 @@ test.describe('@livekit sala real', () => {
   test.skip(!hasLiveKit(env), 'chaves do LiveKit ausentes: e2e real da sala pulado');
   test.describe.configure({ mode: 'serial', timeout: 120_000 });
 
-  test('dois participantes se veem, mudo propaga, deaf é local e sair some da lista', async ({
+  test('dois participantes se veem, mudo propaga, volume individual, deaf é local e sair some da lista', async ({
     browser,
   }) => {
     const alice = await join(browser, 'e2e-a', 'alice');
@@ -65,6 +65,20 @@ test.describe('@livekit sala real', () => {
     await expect(aliceSeenByBob).toHaveAttribute('data-muted', 'false', { timeout: 20_000 });
     await alice.getByTestId('control-mic').click();
     await expect(aliceSeenByBob).toHaveAttribute('data-muted', 'true', { timeout: 20_000 });
+
+    // Botão direito no tile de Bob: o slider só mexe no áudio que Alice ouve (decisão D26).
+    await bobSeenByAlice.click({ button: 'right' });
+    const volumeMenu = alice.getByRole('dialog', { name: 'Volume de bob' });
+    await volumeMenu.getByRole('slider').fill('0.3');
+    await expect(volumeMenu).toContainText('30%');
+    await expect
+      .poll(() => alice.locator('audio').first().evaluate((el: HTMLAudioElement) => el.volume))
+      .toBeCloseTo(0.3, 2);
+    expect(await alice.evaluate(() => localStorage.getItem('kingdc.volumes'))).toBe(
+      '{"e2e-b":0.3}',
+    );
+    await alice.keyboard.press('Escape');
+    await expect(volumeMenu).toHaveCount(0);
 
     // Ensurdecer muta o microfone de Alice junto (decisão D9).
     await alice.getByTestId('control-deaf').click();

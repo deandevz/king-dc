@@ -21,6 +21,12 @@ describe('remoteVolume', () => {
     expect(remoteVolume(false, -2)).toBe(0);
     expect(remoteVolume(false, Number.NaN)).toBe(1);
   });
+
+  it('multiplica pelo volume individual do participante', () => {
+    expect(remoteVolume(false, 0.5, 0.5)).toBe(0.25);
+    expect(remoteVolume(false, 1, 0)).toBe(0);
+    expect(remoteVolume(true, 1, 0.5)).toBe(0);
+  });
 });
 
 describe('micEnabledAfterDeafChange', () => {
