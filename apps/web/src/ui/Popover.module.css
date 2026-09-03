@@ -5,9 +5,7 @@
   padding: var(--kd-space-4);
   border: 1px solid var(--kd-border);
   border-radius: var(--kd-radius-md);
-  background: var(--kd-overlay);
-  backdrop-filter: blur(var(--kd-blur-glass));
-  -webkit-backdrop-filter: blur(var(--kd-blur-glass));
+  background: var(--kd-surface);
   box-shadow: var(--kd-shadow-card);
 }
 
